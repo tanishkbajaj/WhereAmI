@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WhereAmITableView.swift
 //  WhereAmI
 //
 //  Created by IMCS2 on 9/15/19.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
+class WhereAmITableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -23,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         return cell
     }
+    
+
+   
 
 }
-
