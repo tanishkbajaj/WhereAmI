@@ -14,17 +14,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     
     let locationManager = CLLocationManager()
-    
-    //   var lat = 0.0
-    //   var long = 0.0
-    
+ 
     var location : Location = Location()
     
     var sendingLocation = [Location]()
-    
-    //    var sendingName: [String] = []
-    //    var sendingLat: [Double] = []
-    //    var sendingLong: [Double] = []
     
     
     @IBOutlet weak var latLongLabelMap: UILabel!
@@ -61,9 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             activityItems: ["Here is my current address: \(AddressLabel.text!)  Coordinates are:( \(location.latitude), \(location.longitude))"],
             applicationActivities: nil
         )
-        // activity.popoverPresentationController? = sender
-        
-        // 3
         present(activity, animated: true, completion: nil)
     }
     
@@ -104,14 +94,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                 print("Your name: \(name)")
                 self.sendingLocation.append(Location(name, self.location.latitude, self.location.longitude, Date()))
                 
-                //                self.sendingName.append(name)
-                //                self.sendingLat.append(self.location.latitude)
-                //                self.sendingLong.append(self.location.longitude)
-                //                print(self.sendingLat,self.sendingLong,"dekh")
-                
-                
             }
-            
             
             
             let alert = UIAlertController(title: "Pinned It!", message: "You have saved the current address", preferredStyle: .alert)
@@ -134,27 +117,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBAction func historyButtonAction(_ sender: Any) {
         
-        //        let tableviewObject = NewTableViewController()
-        //        tableviewObject.storedAddressArray.append(addressStreet)
-        //         self.present(tableviewObject, animated: true, completion: nil)
-        //        performSegue(withIdentifier: "ViewtoCell", sender: self)
     }
     
     let blogSegueIdentifier = "ViewtoCell"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        // print(" title just after fetch\(savedDataTitleFromCore)")
-        
-        
         if  segue.identifier == blogSegueIdentifier,
             let destination = segue.destination as? NewTableViewController {
             destination.storedLocation = sendingLocation
-            
-            //            destination.storedAddressArray = sendingName
-            //            destination.storedLatArray = sendingLat
-            //            destination.storedLongArray = sendingLong
-            //
             
         }
         
@@ -171,7 +141,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         super.viewDidLoad()
         self.mapView.showsUserLocation = true
         self.locationManager.requestAlwaysAuthorization()
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -188,14 +157,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         if let coor = mapView.userLocation.location?.coordinate{
             mapView.setCenter(coor, animated: true)
         }
-        
-        //        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-        //        self.lat = locValue.latitude
-        //        self.long = locValue.longitude
-        // latLongLabelMap.text = "\(lat), \(long)"
-        
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
