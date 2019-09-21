@@ -13,6 +13,8 @@ class NewTableViewController: UITableViewController {
     var storedAddressArray: [String] = []
     var storedLatArray: [Double] = []
     var storedLongArray: [Double] = []
+    var currLatArray: [Double] = []
+    var currLongArray: [Double] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +49,7 @@ class NewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLatArray.reversed()[indexPath.row], longitude: storedLongArray.reversed()[indexPath.row])))
+        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: currLatArray.reversed()[indexPath.row], longitude: currLongArray.reversed()[indexPath.row])))
         source.name = "Source"
         
         let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLatArray.reversed()[indexPath.row], longitude: storedLongArray.reversed()[indexPath.row])))

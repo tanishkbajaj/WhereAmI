@@ -17,6 +17,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     var sendingName: [String] = []
     var sendingLat: [Double] = []
     var sendingLong: [Double] = []
+    var currentLat: [Double] = []
+    var currentLong: [Double] = []
     
     
     @IBOutlet weak var latLongLabelMap: UILabel!
@@ -66,7 +68,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long)))
         source.name = "Source"
         
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long)))
+        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: sendingLat.reversed()[0], longitude: sendingLong.reversed()[0])))
         destination.name = self.sendingName.reversed()[0]
         
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
@@ -97,7 +99,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                 self.sendingName.append(name)
                 self.sendingLat.append(self.lat)
                 self.sendingLong.append(self.long)
-                print(self.sendingLat,self.sendingLong,"dekh")
+                print("this is sending Lat",self.sendingLat)
+                print("this is sending Lat",self.sendingLong)
+                print("this is current Lat",self.currentLat)
+                print("this is sending Lat",self.currentLat)
                 
 
             }
@@ -142,6 +147,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             destination.storedAddressArray = sendingName
             destination.storedLatArray = sendingLat
             destination.storedLongArray = sendingLong
+            destination.currLatArray = currentLat
+            destination.currLongArray = currentLong
 
 
         }
@@ -186,11 +193,17 @@ self.mapView.showsUserLocation = true
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Where Am I?"
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
             let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.lat = locValue.latitude
+        currentLat.append(lat)
         self.long = locValue.longitude
+        currentLong.append(long)
             print(locValue.latitude,"hi")
         latLongLabelMap.text = "\(locValue.latitude), \(locValue.longitude)"
             self.mapView.mapType = MKMapType.standard

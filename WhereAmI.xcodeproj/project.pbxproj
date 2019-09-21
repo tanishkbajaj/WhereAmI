@@ -10,6 +10,7 @@
 		492F97B72331EA8500705229 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492F97B62331EA8500705229 /* WebKit.framework */; };
 		492F97BB2332CB9D00705229 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F97BA2332CB9D00705229 /* NewTableViewController.swift */; };
 		4995178423316E2000438060 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4995178323316E2000438060 /* CoreLocation.framework */; };
+		4998D7492335F53100D5CF80 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998D7482335F53100D5CF80 /* AboutAppViewController.swift */; };
 		49A66DFB2330AD5F000C7265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A66DFA2330AD5F000C7265 /* ViewController.swift */; };
 		49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D73A1B232EAFFD00A016C0 /* AppDelegate.swift */; };
 		49D73A21232EAFFD00A016C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D73A1F232EAFFD00A016C0 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		492F97B62331EA8500705229 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		492F97BA2332CB9D00705229 /* NewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		4995178323316E2000438060 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4998D7482335F53100D5CF80 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		49A66DFA2330AD5F000C7265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49D73A18232EAFFD00A016C0 /* WhereAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D73A1B232EAFFD00A016C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				49D73A1B232EAFFD00A016C0 /* AppDelegate.swift */,
 				49D73A1F232EAFFD00A016C0 /* Main.storyboard */,
+				4998D7482335F53100D5CF80 /* AboutAppViewController.swift */,
 				492F97BA2332CB9D00705229 /* NewTableViewController.swift */,
 				49A66DFA2330AD5F000C7265 /* ViewController.swift */,
 				49D73A25232EB00000A016C0 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 				492F97BB2332CB9D00705229 /* NewTableViewController.swift in Sources */,
 				49A66DFB2330AD5F000C7265 /* ViewController.swift in Sources */,
 				49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */,
+				4998D7492335F53100D5CF80 /* AboutAppViewController.swift in Sources */,
 				49D73A24232EAFFD00A016C0 /* WhereAmI.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

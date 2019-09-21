@@ -35,6 +35,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="i"/>
+                                <connections>
+                                    <segue destination="SMd-aB-m6X" kind="show" id="t2v-q8-9ZX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Approximate Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S93-qK-gqW">
                                 <rect key="frame" x="0.0" y="322" width="414" height="21"/>
@@ -110,6 +113,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJO-HW-h2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3925.5999999999999" y="765.96701649175418"/>
+        </scene>
+        <!--About App View Controller-->
+        <scene sceneID="fO5-xs-BPT">
+            <objects>
+                <viewController id="SMd-aB-m6X" customClass="AboutAppViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ciq-zR-Q5m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Rro-wV-CyQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjO-T8-FV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4681" y="1533"/>
         </scene>
         <!--New Table View Controller-->
         <scene sceneID="VQD-Di-Sbc">
