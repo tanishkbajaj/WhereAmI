@@ -11,6 +11,12 @@ import MapKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate {
+    
+    @IBOutlet weak var shareButton: UIButton?
+    
+    @IBOutlet weak var pinButton: UIButton?
+    
+    @IBOutlet weak var historyButton: UIButton?
     let locationManager = CLLocationManager()
     var lat = 0.0
     var long = 0.0
@@ -177,12 +183,17 @@ self.mapView.showsUserLocation = true
             mapView.setCenter(coor, animated: true)
         }
         
-//        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//        self.lat = locValue.latitude
-//        self.long = locValue.longitude
-       // latLongLabelMap.text = "\(lat), \(long)"
+        shareButton?.layer.cornerRadius = 8.0
+        shareButton?.layer.borderWidth = 1.0
+        shareButton?.layer.borderColor = UIColor.orange.cgColor
         
+        pinButton?.layer.cornerRadius = 8.0
+        pinButton?.layer.borderWidth = 1.0
+        pinButton?.layer.borderColor = UIColor.orange.cgColor
         
+        historyButton?.layer.cornerRadius = 8.0
+        historyButton?.layer.borderWidth = 1.0
+        historyButton?.layer.borderColor = UIColor.orange.cgColor
         
     }
     

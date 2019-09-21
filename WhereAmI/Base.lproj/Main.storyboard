@@ -22,22 +22,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX5-OZ-ZCB">
-                                <rect key="frame" x="20" y="260" width="69" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-lp-1SW">
+                                <rect key="frame" x="309" y="256" width="41" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Clock"/>
+                                <state key="normal" image="info1"/>
                                 <connections>
-                                    <action selector="showOnGoogleMapsButton:" destination="hHO-fx-t25" eventType="touchUpInside" id="cAz-Ly-ECr"/>
+                                    <segue destination="CZo-bc-Kzo" kind="show" id="nGC-qg-89h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-lp-1SW">
-                                <rect key="frame" x="329" y="259" width="30" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="i"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Approximate Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S93-qK-gqW">
-                                <rect key="frame" x="0.0" y="322" width="414" height="21"/>
+                                <rect key="frame" x="0.0" y="322" width="375" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.82303565861609984" green="0.82303565861609984" blue="0.82303565861609984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -60,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-wg-UOW">
-                                <rect key="frame" x="213" y="492" width="125" height="56"/>
+                                <rect key="frame" x="215" y="502" width="125" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pin"/>
                                 <connections>
@@ -68,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKV-7l-AcJ">
-                                <rect key="frame" x="138" y="576" width="134" height="59"/>
+                                <rect key="frame" x="111" y="573" width="134" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="History"/>
                                 <connections>
@@ -84,18 +78,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX5-OZ-ZCB">
+                                <rect key="frame" x="20" y="249" width="52" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image=" clock"/>
+                                <connections>
+                                    <action selector="showOnGoogleMapsButton:" destination="hHO-fx-t25" eventType="touchUpInside" id="cAz-Ly-ECr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cjD-2B-EaJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Where Am I?" id="Dkb-7H-9YZ">
-                        <barButtonItem key="leftBarButtonItem" title="Setttings" id="P8a-9Y-hFH">
+                        <barButtonItem key="leftBarButtonItem" title="Setttings" image="settings" id="P8a-9Y-hFH">
                             <connections>
                                 <action selector="SettingBarButton:" destination="hHO-fx-t25" id="Bet-J1-eJ5"/>
                                 <segue destination="mlO-LQ-6jD" kind="show" id="b33-u2-mdF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Star" id="ceA-np-0dl">
+                        <barButtonItem key="rightBarButtonItem" image="star1" id="ceA-np-0dl">
                             <connections>
                                 <action selector="RateOnAppStoreButton:" destination="hHO-fx-t25" id="eBZ-19-0qw"/>
                             </connections>
@@ -103,8 +105,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="AddressLabel" destination="xaR-Le-GYX" id="zEc-QU-oc0"/>
+                        <outlet property="historyButton" destination="WKV-7l-AcJ" id="203-7z-2pR"/>
                         <outlet property="latLongLabelMap" destination="zeP-UQ-w11" id="LDu-Vx-PtY"/>
                         <outlet property="mapView" destination="G7u-kb-FOE" id="dmW-bF-jkp"/>
+                        <outlet property="pinButton" destination="Pe7-wg-UOW" id="xRw-PC-42v"/>
+                        <outlet property="shareButton" destination="GmY-HX-gl0" id="88e-yc-xiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJO-HW-h2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,6 +144,43 @@
             </objects>
             <point key="canvasLocation" x="4897" y="759"/>
         </scene>
+        <!--Info View Controller-->
+        <scene sceneID="Y9e-AK-rzz">
+            <objects>
+                <viewController id="CZo-bc-Kzo" customClass="InfoViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iGV-gg-AXC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxn-7L-gOB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-Zy-lwq">
+                                <rect key="frame" x="34" y="483" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSI-Zj-V5F">
+                                <rect key="frame" x="263" y="483" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HO7-Pa-g3E"/>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="Oxn-7L-gOB" id="6dC-vB-A2n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLI-yI-FZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4896.8000000000002" y="1534.1829085457273"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Olj-7Y-lg1">
             <objects>
@@ -157,16 +199,16 @@
             </objects>
             <point key="canvasLocation" x="3015.9420289855075" y="766.74107142857144"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Link Account Table View Controller-->
         <scene sceneID="3u5-eb-bbm">
             <objects>
-                <tableViewController id="mlO-LQ-6jD" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dzc-bf-9cf">
+                <tableViewController id="mlO-LQ-6jD" customClass="LinkAccountTableViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dzc-bf-9cf" colorLabel="IBBuiltInLabel-Gray">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pez-Z8-QPu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="pez-Z8-QPu">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pez-Z8-QPu" id="uXB-L8-hOf">
@@ -183,7 +225,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0c-VA-245" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4681" y="78"/>
+            <point key="canvasLocation" x="4680.8000000000002" y="77.811094452773617"/>
         </scene>
     </scenes>
+    <resources>
+        <image name=" clock" width="100" height="100"/>
+        <image name="info1" width="50" height="50"/>
+        <image name="settings" width="50" height="50"/>
+        <image name="star1" width="50" height="50"/>
+    </resources>
 </document>
