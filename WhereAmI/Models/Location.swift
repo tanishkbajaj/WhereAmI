@@ -16,7 +16,7 @@ struct Location {
     init () {
         
     }
-    init( _ address : String, _ longitude : Double, _ latitude : Double, _ date : Date, _ name : String  = "") {
+    init( _ address : String, _ latitude : Double, _ longitude : Double, _ date : Date, _ name : String  = "") {
         self.name = name
         self.address = address
         self.longitude = longitude
