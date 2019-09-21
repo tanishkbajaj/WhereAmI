@@ -20,6 +20,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     var sendingLocation = [Location]()
     
     
+    @IBOutlet weak var historyButton: UIButton!
+    
+    @IBOutlet weak var shareButton: UIButton!
+    
+    @IBOutlet weak var pinButton: UIButton!
+    
+    
     @IBOutlet weak var latLongLabelMap: UILabel!
     
     @IBOutlet weak var AddressLabel: UILabel!
@@ -157,6 +164,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         if let coor = mapView.userLocation.location?.coordinate{
             mapView.setCenter(coor, animated: true)
         }
+        
+        shareButton?.layer.cornerRadius = 8.0
+        shareButton?.layer.borderWidth = 1.0
+        shareButton?.layer.borderColor = UIColor.orange.cgColor
+        
+        pinButton?.layer.cornerRadius = 8.0
+        pinButton?.layer.borderWidth = 1.0
+        pinButton?.layer.borderColor = UIColor.orange.cgColor
+        
+        historyButton?.layer.cornerRadius = 8.0
+        historyButton?.layer.borderWidth = 1.0
+        historyButton?.layer.borderColor = UIColor.orange.cgColor
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
