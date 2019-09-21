@@ -12,10 +12,11 @@ import MapKit
 class NewTableViewController: UITableViewController {
     
     var storedLocation  = [Location]()
+    var getCurrLocation: Location = Location()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         let nibName = UINib(nibName: "HistoryItemsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "HistoryItemsTableViewCell")
         
@@ -53,10 +54,10 @@ class NewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocation.reversed()[indexPath.row].longitude, longitude: storedLocation.reversed()[indexPath.row].latitude)))
-        source.name = "Source"
+        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: getCurrLocation.latitude , longitude: getCurrLocation.longitude)))
+        source.name = "My Location"
         
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocation.reversed()[indexPath.row].longitude, longitude: storedLocation.reversed()[indexPath.row].latitude)))
+        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocation.reversed()[indexPath.row].latitude, longitude: storedLocation.reversed()[indexPath.row].longitude)))
         
         destination.name = storedLocation.reversed()[indexPath.row].address
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
