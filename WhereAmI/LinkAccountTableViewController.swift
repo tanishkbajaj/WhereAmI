@@ -69,6 +69,7 @@ class LinkAccountTableViewController: UITableViewController {
                 cell.textLabel?.text = string
             }
         }else if indexPath.section == 1{
+            cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = options[indexPath.row]
         }else if indexPath.section == 2{
             cell.textLabel?.textAlignment = .center
@@ -80,24 +81,7 @@ class LinkAccountTableViewController: UITableViewController {
 
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//        if section == 0{
-//
-//            return "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
-//        }else{
-//            return ""
-//        }
-    
 
-    
-
-    
-    
-    
-    
-//
-//
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section ==  0{
             return 10
@@ -106,9 +90,6 @@ class LinkAccountTableViewController: UITableViewController {
         }
 
     }
-
-    
- 
 
     /*
     // Override to support conditional editing of the table view.
@@ -155,6 +136,8 @@ class LinkAccountTableViewController: UITableViewController {
     }
     */
     
+    
+    //Adding the color to the whole view controller
     func hexStringToUIColor (hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     
