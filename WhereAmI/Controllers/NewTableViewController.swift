@@ -8,11 +8,14 @@
 
 import UIKit
 import MapKit
+import GoogleMobileAds
 
-class NewTableViewController: UITableViewController {
+class NewTableViewController: UITableViewController, GADInterstitialDelegate, UIAlertViewDelegate {
     
     var storedLocation  = [Location]()
     var getCurrLocation: Location = Location()
+    var interstitial: GADInterstitial!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,26 @@ class NewTableViewController: UITableViewController {
         let nibName = UINib(nibName: "HistoryItemsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "HistoryItemsTableViewCell")
         
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        
+        let request = GADRequest()
+        interstitial.load(request)
+        interstitial.delegate = self
+        interstitial.present(fromRootViewController: self)
+        
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//        if interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//        }
+//
+//    }
+    
+    
+    
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,6 +56,7 @@ class NewTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryItemsTableViewCell", for: indexPath) as! HistoryItemsTableViewCell
         
@@ -54,6 +77,7 @@ class NewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: getCurrLocation.latitude , longitude: getCurrLocation.longitude)))
         source.name = "My Location"
         
@@ -62,5 +86,6 @@ class NewTableViewController: UITableViewController {
         destination.name = storedLocation.reversed()[indexPath.row].address
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
+    
     
 }
