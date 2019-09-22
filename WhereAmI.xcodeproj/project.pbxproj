@@ -21,6 +21,7 @@
 		8805BF712335F36C00E4D55E /* HistoryItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8805BF6F2335F36C00E4D55E /* HistoryItemsTableViewCell.xib */; };
 		885526612336994C00CE7514 /* LinkAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885526602336994C00CE7514 /* LinkAccountTableViewController.swift */; };
 		8855266323369C8A00CE7514 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855266223369C8A00CE7514 /* InfoViewController.swift */; };
+		885526672336C86D00CE7514 /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885526662336C86D00CE7514 /* CoreDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8805BF6F2335F36C00E4D55E /* HistoryItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryItemsTableViewCell.xib; sourceTree = "<group>"; };
 		885526602336994C00CE7514 /* LinkAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountTableViewController.swift; sourceTree = "<group>"; };
 		8855266223369C8A00CE7514 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		885526662336C86D00CE7514 /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8805BF6C2335F31A00E4D55E /* Location.swift */,
+				885526662336C86D00CE7514 /* CoreDatabase.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */,
 				885526612336994C00CE7514 /* LinkAccountTableViewController.swift in Sources */,
 				8855266323369C8A00CE7514 /* InfoViewController.swift in Sources */,
+				885526672336C86D00CE7514 /* CoreDatabase.swift in Sources */,
 				49D73A24232EAFFD00A016C0 /* WhereAmI.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

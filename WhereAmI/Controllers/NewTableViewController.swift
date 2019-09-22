@@ -11,7 +11,7 @@ import MapKit
 
 class NewTableViewController: UITableViewController {
     
-    var storedLocation  = [Location]()
+    var storedLocationsReverse : [Location] = CoreDatabase.fetchLocations().reversed()
     var getCurrLocation: Location = Location()
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class NewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return storedLocation.count
+        return (storedLocationsReverse.count)
     }
     
     
@@ -43,11 +43,11 @@ class NewTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
         
-        cell.LocationNameLabel.text = storedLocation.reversed()[indexPath.row].address
+        cell.LocationNameLabel.text = storedLocationsReverse[indexPath.row].address
         
-        cell.DateLabel.text = dateFormatter.string(from: storedLocation.reversed()[indexPath.row].date)
+        cell.DateLabel.text = dateFormatter.string(from: storedLocationsReverse[indexPath.row].date)
         
-        cell.TimeLabel.text = timeFormatter.string(from: storedLocation.reversed()[indexPath.row].date)
+        cell.TimeLabel.text = timeFormatter.string(from: storedLocationsReverse[indexPath.row].date)
         
         return cell
     }
@@ -57,9 +57,9 @@ class NewTableViewController: UITableViewController {
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: getCurrLocation.latitude , longitude: getCurrLocation.longitude)))
         source.name = "My Location"
         
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocation.reversed()[indexPath.row].latitude, longitude: storedLocation.reversed()[indexPath.row].longitude)))
+        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocationsReverse[indexPath.row].latitude, longitude: storedLocationsReverse[indexPath.row].longitude)))
         
-        destination.name = storedLocation.reversed()[indexPath.row].address
+        destination.name = storedLocationsReverse[indexPath.row].address
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     

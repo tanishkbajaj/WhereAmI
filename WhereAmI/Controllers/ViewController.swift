@@ -18,7 +18,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     var location : Location = Location()
     
     var sendingLocation = [Location]()
-    var currLocation = [Location]()
     
     
     @IBOutlet weak var historyButton: UIButton!
@@ -68,12 +67,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBAction func showOnGoogleMapsButton(_ sender: Any) {
         
-        if !sendingLocation.isEmpty{
+        if  !CoreDatabase.fetchLocations().isEmpty {
             let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)))
             source.name = "My Location"
+                        
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: CoreDatabase.fetchLastLocation().latitude, longitude: CoreDatabase.fetchLastLocation().longitude)))
             
-            let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: sendingLocation.reversed()[0].latitude, longitude: sendingLocation.reversed()[0].longitude)))
-            destination.name = self.sendingLocation.reversed()[0].address
+            destination.name = CoreDatabase.fetchLastLocation().address
             
             MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
         }else {
@@ -99,8 +99,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         alert.addAction(UIAlertAction(title: "Pin It!", style: .default, handler: { action in
             
             if let address = alert.textFields?.first?.text {
-                self.sendingLocation.append(Location(address, self.location.latitude, self.location.longitude, Date()))
-                
+                let currentLocation = Location(address, self.location.latitude, self.location.longitude, Date())
+                self.sendingLocation.append(currentLocation)
+                CoreDatabase.saveLocation(currentLocation)
             }
             
             
@@ -131,7 +132,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         if  segue.identifier == blogSegueIdentifier,
             let destination = segue.destination as? NewTableViewController {
-            destination.storedLocation = sendingLocation
+         //   destination.storedLocation = sendingLocation
             destination.getCurrLocation = location
             
         }
@@ -184,7 +185,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.location.latitude = locValue.latitude
         self.location.longitude = locValue.longitude
-        print(locValue.latitude,"hi")
         latLongLabelMap.text = "\(locValue.latitude), \(locValue.longitude)"
         self.mapView.mapType = MKMapType.standard
         
