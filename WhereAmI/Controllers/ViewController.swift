@@ -36,6 +36,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBOutlet weak var bannerView: GADBannerView!
     
+    @IBOutlet weak var BannerView2: GADBannerView!
+    
     @IBAction func SettingBarButton(_ sender: Any) {
         
     }
@@ -187,6 +189,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
+        
+        BannerView2.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        BannerView2.rootViewController = self
+        BannerView2.load(GADRequest())
+        BannerView2.delegate = self
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

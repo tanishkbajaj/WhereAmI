@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import GoogleMobileAds
 
-class NewTableViewController: UITableViewController, GADInterstitialDelegate, UIAlertViewDelegate {
+class NewTableViewController: UITableViewController, GADInterstitialDelegate,GADBannerViewDelegate, UIAlertViewDelegate {
     
     var storedLocation  = [Location]()
     var getCurrLocation: Location = Location()
     var interstitial: GADInterstitial!
 
+    @IBOutlet weak var bannerTableView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,23 +25,55 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate, UI
         tableView.register(nibName, forCellReuseIdentifier: "HistoryItemsTableViewCell")
         
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        
+
         let request = GADRequest()
         interstitial.load(request)
         interstitial.delegate = self
-        interstitial.present(fromRootViewController: self)
-        
-    }
-//    override func viewWillAppear(_ animated: Bool) {
+//        interstitial.present(fromRootViewController: self)
+//        interstitial.load(GADRequest())
+        //interstitial = createAndLoadInterstitial()
+       // update()
+//        while !interstitial.isReady {
 //
+//        }
+//        self.interstitial.present(fromRootViewController: self)
+        
+        bannerTableView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerTableView.rootViewController = self
+        bannerTableView.load(GADRequest())
+       bannerTableView.delegate = self
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+           
+            self.interstitial.present(fromRootViewController: self)
+        })
 //        if interstitial.isReady {
 //            interstitial.present(fromRootViewController: self)
 //        } else {
 //            print("Ad wasn't ready")
 //        }
+    }
+    
+//    func createAndLoadInterstitial() -> GADInterstitial {
+//        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+//        interstitial.delegate = self
+//        interstitial.load(GADRequest())
+//        return interstitial
+//    }
 //
+//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        interstitial = createAndLoadInterstitial()
 //    }
     
+    
+    
+//    func update() {
+//        if interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//        }
+//    }
     
     
     
