@@ -172,17 +172,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TU-9n-2fw" customClass="GADBannerView">
-                                <rect key="frame" x="27" y="597" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TU-9n-2fw" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="585" width="321" height="62"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-Oq-20n">
+                                <rect key="frame" x="27" y="530" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Feedback">
+                                            <attributes>
+                                                <color key="NSColor" red="0.12841342673663114" green="0.24046748715638255" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="15" name="ArialRoundedMTBold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="feedbackButton:" destination="qKW-FR-2UN" eventType="touchUpInside" id="zvP-D0-15g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="His-ZB-uPL">
+                                <rect key="frame" x="241" y="530" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Invite Friends">
+                                            <attributes>
+                                                <color key="NSColor" red="0.12841342673663114" green="0.24046748715638255" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="15" name="ArialRoundedMTBold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="inviteFriendsButton:" destination="qKW-FR-2UN" eventType="touchUpInside" id="wXg-KD-uCQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjw-86-fxq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="442"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52029664327640512" green="0.87438435853124252" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.52395062220004562" green="0.87120110350554414" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="bottom" secondItem="0TU-9n-2fw" secondAttribute="bottom" constant="20" id="1zX-Nd-J4k"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="27" id="8J4-DO-7U7"/>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="0TU-9n-2fw" secondAttribute="trailing" constant="27" id="eC8-wL-BcD"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="top" secondItem="K6u-zC-Kd8" secondAttribute="top" constant="585" id="wfZ-P8-faV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9BD-5a-4jm"/>
                     </view>
                     <connections>
                         <outlet property="BannerView" destination="0TU-9n-2fw" id="H9u-RX-2lN"/>
+                        <outlet property="feedbackButton" destination="sEY-Oq-20n" id="nxO-Zi-5Ox"/>
+                        <outlet property="infoLabel" destination="fjw-86-fxq" id="jPg-5k-FB1"/>
+                        <outlet property="inviteFriendsButton" destination="His-ZB-uPL" id="mjI-5w-Zaj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vu1-qK-4W2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,6 +249,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N6p-Q0-fwm">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.63189916570000004" blue="0.059235238230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
