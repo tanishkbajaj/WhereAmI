@@ -45,10 +45,74 @@ class CoreDatabase {
         }
     }
     
+    
+    static func deleteLocation (_ location : Location) {
+        
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        print(location.address)
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName : "Location")
+        
+        fetchRequest.predicate = NSPredicate(format: "(date = %@)", location.date as CVarArg)
+        
+        do
+        {
+            let fetchedResults =  try managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            
+            for entity in fetchedResults! {
+                
+                managedContext.delete(entity)
+            }
+        }
+        catch _ {
+            print("Could not delete")
+            
+        }
+        
+    }
+    
+    static func updateLocation (_ location : Location) {
+        
+      
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Location")
+        let predicate = NSPredicate(format: "(date = %@)", location.date as CVarArg)
+        fetchRequest.predicate = predicate
+        do
+        {
+            let object = try context.fetch(fetchRequest)
+            if object.count == 1
+            {
+                let objectUpdate = object.first as! NSManagedObject
+                objectUpdate.setValue(location.address, forKey: "address")
+                do{
+                    try context.save()
+                }
+                catch
+                {
+                    print(error)
+                }
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+        
+    }
+    
+    
     static func fetchLocations () -> [Location] {
         
         var fetchLocations = [Location]()
-        
+      
         //1
         if let appDelegate =
             UIApplication.shared.delegate as? AppDelegate {
@@ -78,6 +142,7 @@ class CoreDatabase {
                     fetchLocation.address = (pin[index].value(forKeyPath: "address")! as? String)!
                     fetchLocation.latitude = pin[index].value(forKeyPath: "latitude")! as! Double
                     fetchLocation.longitude = pin[index].value(forKeyPath: "longitude")! as! Double
+                    fetchLocation.date = pin[index].value(forKeyPath: "date")! as! Date
                     fetchLocations.append(fetchLocation)
                 }
             }
