@@ -29,19 +29,11 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         let request = GADRequest()
         interstitial.load(request)
         interstitial.delegate = self
-//        interstitial.present(fromRootViewController: self)
-//        interstitial.load(GADRequest())
-        //interstitial = createAndLoadInterstitial()
-       // update()
-//        while !interstitial.isReady {
-//
-//        }
-//        self.interstitial.present(fromRootViewController: self)
         
         bannerTableView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerTableView.rootViewController = self
         bannerTableView.load(GADRequest())
-       bannerTableView.delegate = self
+        bannerTableView.delegate = self
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
            

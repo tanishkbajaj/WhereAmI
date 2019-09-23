@@ -78,9 +78,6 @@ class InfoViewController: UIViewController,GADBannerViewDelegate {
             applicationActivities: nil
         )
         present(activity, animated: true, completion: nil)
-        
-        
-        
     }
     
     
@@ -99,7 +96,4 @@ class InfoViewController: UIViewController,GADBannerViewDelegate {
         }
         self.dismiss(animated: true, completion: nil)
     }
-    
-
-
 }

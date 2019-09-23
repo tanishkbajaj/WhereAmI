@@ -6,6 +6,8 @@
 //  Copyright © 2019 Tanishk. All rights reserved.
 //
 import UIKit
+var flag: Bool?
+
 
 class LinkAccountTableViewController: UITableViewController {
     var options = ["Remove Ads", "How is works", "About App"]
@@ -60,6 +62,7 @@ class LinkAccountTableViewController: UITableViewController {
                 let switchView = UISwitch(frame: CGRect.zero)
                 cell.addSubview(switchView)
                 cell.accessoryView = switchView
+                switchView.addTarget(self, action: #selector(self.switchValueDidChange), for: .valueChanged)
                 cell.textLabel?.text = quickPin
             }else{
                 cell.textLabel?.numberOfLines = 3
@@ -88,6 +91,25 @@ class LinkAccountTableViewController: UITableViewController {
         }
         
     }
+    @objc func switchValueDidChange(sender:UISwitch!) {
+        if sender.isOn{
+            flag = true
+            print(flag!)
+        }else{
+            flag = false
+            print(flag!)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1{
+            if indexPath.row == 1{
+                print("yes")
+            }
+        }
+    }
+    
+    
     
     /*
      // Override to support conditional editing of the table view.
