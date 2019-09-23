@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMobileAds
 
-class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate, GADBannerViewDelegate {
     
     
     let locationManager = CLLocationManager()
@@ -31,6 +32,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBOutlet weak var AddressLabel: UILabel!
     var addressStreet: String = " "
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    @IBOutlet weak var BannerView2: GADBannerView!
     
     @IBAction func SettingBarButton(_ sender: Any) {
         
@@ -135,6 +140,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
          //   destination.storedLocation = sendingLocation
             destination.getCurrLocation = location
             
+            
         }
         
         
@@ -178,6 +184,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         historyButton?.layer.cornerRadius = 8.0
         historyButton?.layer.borderWidth = 1.0
         historyButton?.layer.borderColor = UIColor.orange.cgColor
+        
+        //adding Ad
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        
+        BannerView2.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        BannerView2.rootViewController = self
+        BannerView2.load(GADRequest())
+        BannerView2.delegate = self
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
