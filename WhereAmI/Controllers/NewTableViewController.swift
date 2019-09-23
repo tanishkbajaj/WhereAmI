@@ -12,7 +12,7 @@ import GoogleMobileAds
 
 class NewTableViewController: UITableViewController, GADInterstitialDelegate,GADBannerViewDelegate, UIAlertViewDelegate {
     
-    var storedLocation  = [Location]()
+    var storedLocations : [Location] = CoreDatabase.fetchLocations()
     var getCurrLocation: Location = Location()
     var interstitial: GADInterstitial!
 
@@ -83,8 +83,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return storedLocation.count
+        return (storedLocations.count)
     }
     
     
@@ -99,11 +98,11 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
         
-        cell.LocationNameLabel.text = storedLocation.reversed()[indexPath.row].address
+        cell.LocationNameLabel.text = storedLocations.reversed()[indexPath.row].address
         
-        cell.DateLabel.text = dateFormatter.string(from: storedLocation.reversed()[indexPath.row].date)
+        cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
-        cell.TimeLabel.text = timeFormatter.string(from: storedLocation.reversed()[indexPath.row].date)
+        cell.TimeLabel.text = timeFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
         return cell
     }
@@ -114,11 +113,76 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: getCurrLocation.latitude , longitude: getCurrLocation.longitude)))
         source.name = "My Location"
         
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocation.reversed()[indexPath.row].latitude, longitude: storedLocation.reversed()[indexPath.row].longitude)))
+        let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: storedLocations.reversed()[indexPath.row].latitude, longitude: storedLocations.reversed()[indexPath.row].longitude)))
         
-        destination.name = storedLocation.reversed()[indexPath.row].address
+        destination.name = storedLocations.reversed()[indexPath.row].address
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//        self.storedLocations.remove(at: indexPath.row)
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            //self.storedLocations.remove(at: indexPath.row)
+            
+            
+            
+            var temporaryArray = Array(self.storedLocations.reversed())
+            CoreDatabase.deleteLocation(temporaryArray[indexPath.row])
+            temporaryArray.remove(at: indexPath.row)
+      
+            self.storedLocations = Array(temporaryArray.reversed())
+           // tableView.reloadData()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            // tableView.reloadData()
+           
+        }
+        
+        let share = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+            print("I want to edit: \(self.storedLocations.reversed()[indexPath.row])")
+            
+            let alert = UIAlertController(title: "Edit Address", message: "Change Address Name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            alert.addTextField(configurationHandler: { textField in
+                textField.text = self.storedLocations.reversed()[indexPath.row].address
+            })
+            
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+                
+                if let address = alert.textFields?.first?.text {
+                    var temporaryArray = Array(self.storedLocations.reversed())
+                    temporaryArray[indexPath.row].address = address
+                    CoreDatabase.updateLocation(temporaryArray[indexPath.row])
+                    self.storedLocations = Array(temporaryArray.reversed())
+                    tableView.reloadData()
+                }
+                
+                
+                let alert = UIAlertController(title: "Changed!", message: "You have edited the address", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                
+                self.present(alert, animated: true)
+            }))
+            
+            self.present(alert, animated: true)
+            
+        }
+        
+        share.backgroundColor = UIColor.lightGray
+        
+        return [delete, share]
+        
+    }
+
     
 }
