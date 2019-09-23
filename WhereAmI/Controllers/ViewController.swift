@@ -36,7 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     @IBOutlet weak var bannerView: GADBannerView!
     
     @IBOutlet weak var BannerView2: GADBannerView!
-    
+
     @IBAction func SettingBarButton(_ sender: Any) {
         
     }
@@ -101,7 +101,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             textField.text = self.addressStreet
         })
         
-        if flag ==  true{
+
+        if flag ==  true {
             let currentLocation = Location(AddressLabel.text!, self.location.latitude, self.location.longitude, Date())
             self.sendingLocation.append(currentLocation)
             CoreDatabase.saveLocation(currentLocation)
@@ -113,10 +114,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             self.present(alert, animated: true)
             
         }
-        
-        
-        
-        
         else{
             alert.addAction(UIAlertAction(title: "Pin It!", style: .default, handler: { action in
                 
@@ -171,6 +168,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+ 
         self.mapView.showsUserLocation = true
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -212,6 +212,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         BannerView2.rootViewController = self
         BannerView2.load(GADRequest())
         BannerView2.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        enableAndDisableHistoryButton()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -300,5 +304,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
     }
     
+    func enableAndDisableHistoryButton () {
+        
+        if CoreDatabase.fetchLocations().isEmpty {self.historyButton.isEnabled = false} else {self.historyButton.isEnabled = true}
+    }
     
 }
