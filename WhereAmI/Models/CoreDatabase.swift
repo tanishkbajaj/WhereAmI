@@ -131,12 +131,7 @@ class CoreDatabase {
         do {
             if  let pin : [NSManagedObject] = try managedContext.fetch(fetchRequest)
             {
-                print("FFF")
-                print(pin[0].value(forKeyPath: "address")!)
-                print(pin[0].value(forKeyPath: "latitude")!)
-                print(pin[0].value(forKeyPath: "longitude")!)
-                print(pin[0].value(forKeyPath: "date")!)
-                
+               
                 for index in 0..<pin.count {
                     var fetchLocation = Location()
                     fetchLocation.address = (pin[index].value(forKeyPath: "address")! as? String)!
