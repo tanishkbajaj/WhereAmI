@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMobileAds
 
-class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate, GADBannerViewDelegate {
     
     
     let locationManager = CLLocationManager()
@@ -31,6 +32,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBOutlet weak var AddressLabel: UILabel!
     var addressStreet: String = " "
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    @IBOutlet weak var BannerView2: GADBannerView!
     
     @IBAction func SettingBarButton(_ sender: Any) {
         
@@ -67,12 +72,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBAction func showOnGoogleMapsButton(_ sender: Any) {
         
-        if !sendingLocation.isEmpty{
+        if  !CoreDatabase.fetchLocations().isEmpty {
             let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)))
-            source.name = "Source"
+            source.name = "My Location"
+                        
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: CoreDatabase.fetchLastLocation().latitude, longitude: CoreDatabase.fetchLastLocation().longitude)))
             
-            let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)))
-            destination.name = self.sendingLocation.reversed()[0].name
+            destination.name = CoreDatabase.fetchLastLocation().address
             
             MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
         }else {
@@ -97,10 +103,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         alert.addAction(UIAlertAction(title: "Pin It!", style: .default, handler: { action in
             
-            if let name = alert.textFields?.first?.text {
-                print("Your name: \(name)")
-                self.sendingLocation.append(Location(name, self.location.latitude, self.location.longitude, Date()))
-                
+            if let address = alert.textFields?.first?.text {
+                let currentLocation = Location(address, self.location.latitude, self.location.longitude, Date())
+                self.sendingLocation.append(currentLocation)
+                CoreDatabase.saveLocation(currentLocation)
             }
             
             
@@ -131,7 +137,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         if  segue.identifier == blogSegueIdentifier,
             let destination = segue.destination as? NewTableViewController {
-            destination.storedLocation = sendingLocation
+         //   destination.storedLocation = sendingLocation
+            destination.getCurrLocation = location
+            
             
         }
         
@@ -176,6 +184,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         historyButton?.layer.cornerRadius = 8.0
         historyButton?.layer.borderWidth = 1.0
         historyButton?.layer.borderColor = UIColor.orange.cgColor
+        
+        //adding Ad
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        
+        BannerView2.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        BannerView2.rootViewController = self
+        BannerView2.load(GADRequest())
+        BannerView2.delegate = self
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -183,7 +202,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         self.location.latitude = locValue.latitude
         self.location.longitude = locValue.longitude
-        print(locValue.latitude,"hi")
         latLongLabelMap.text = "\(locValue.latitude), \(locValue.longitude)"
         self.mapView.mapType = MKMapType.standard
         

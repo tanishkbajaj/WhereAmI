@@ -8,8 +8,9 @@
 
 import UIKit
 import MessageUI
+import GoogleMobileAds
 
-class InfoViewController: UIViewController {
+class InfoViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var infoLabel: UILabel?
     
     @IBOutlet weak var feedbackButton: UIButton?
@@ -19,6 +20,12 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        BannerView.rootViewController = self
+        BannerView.load(GADRequest())
+        BannerView.delegate = self
+
         let attributedString = NSMutableAttributedString(string: "Thank for using the Where Am I App. This app provides you the current location on map address along with GPS coordinates. You can share your address as needed. It provides best possible address to its capability and can't be held accountable for any incorrect details. Hope this app helps in the little way! Your address is stored ONLY locally on your phone. You can save/pin your current address and use it anytime to navigate to that address just by a tap.")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 15
@@ -32,6 +39,7 @@ class InfoViewController: UIViewController {
         inviteFriendsButton?.layer.cornerRadius = 8.0
         inviteFriendsButton?.layer.borderWidth = 1.0
         inviteFriendsButton?.layer.borderColor = UIColor.orange.cgColor
+
         
     }
     
