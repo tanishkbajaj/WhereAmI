@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3BB62689BA2C30494B4138E5 /* Pods_WhereAmI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48AB9A3C32B9E1BEDC1E40C /* Pods_WhereAmI.framework */; };
-		4906CB0223389CCB0076AD43 /* About_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906CB0123389CCB0076AD43 /* About_ViewController.swift */; };
 		492F97B72331EA8500705229 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492F97B62331EA8500705229 /* WebKit.framework */; };
 		492F97BB2332CB9D00705229 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F97BA2332CB9D00705229 /* NewTableViewController.swift */; };
 		49303943233710B50007FA07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49303942233710B40007FA07 /* GoogleService-Info.plist */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4906CB0123389CCB0076AD43 /* About_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About_ViewController.swift; sourceTree = "<group>"; };
 		492F97B62331EA8500705229 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		492F97BA2332CB9D00705229 /* NewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		49303942233710B40007FA07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				49A66DFA2330AD5F000C7265 /* ViewController.swift */,
 				492F97BA2332CB9D00705229 /* NewTableViewController.swift */,
 				885526602336994C00CE7514 /* LinkAccountTableViewController.swift */,
-				4906CB0123389CCB0076AD43 /* About_ViewController.swift */,
 				8855266223369C8A00CE7514 /* InfoViewController.swift */,
 			);
 			path = Controllers;
@@ -287,7 +284,6 @@
 			files = (
 				492F97BB2332CB9D00705229 /* NewTableViewController.swift in Sources */,
 				49A66DFB2330AD5F000C7265 /* ViewController.swift in Sources */,
-				4906CB0223389CCB0076AD43 /* About_ViewController.swift in Sources */,
 				8805BF6D2335F31A00E4D55E /* Location.swift in Sources */,
 				8805BF702335F36C00E4D55E /* HistoryItemsTableViewCell.swift in Sources */,
 				49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */,
