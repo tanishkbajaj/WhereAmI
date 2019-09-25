@@ -131,6 +131,18 @@ class LinkAccountTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // let pageViewController = OnboardingController()
+        if indexPath.section == 1 {
+            if indexPath.row == 1 {
+
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "onboarding")
+                self.present(newViewController, animated: true, completion: nil)
+               
+            }
+        }
+    }
     
     
     //Adding the color to the whole view controller
