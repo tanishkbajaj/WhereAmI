@@ -14,6 +14,7 @@
 		494C9F8A233A72ED00BC6C0F /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C9F89233A72ED00BC6C0F /* Slide.swift */; };
 		494C9F8C233A731800BC6C0F /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494C9F8B233A731800BC6C0F /* Slide.xib */; };
 		494C9F8E233AA27C00BC6C0F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494C9F8D233AA27C00BC6C0F /* OnboardingController.swift */; };
+		495F666B233C8B0F00491B87 /* RemoveAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F666A233C8B0F00491B87 /* RemoveAdsViewController.swift */; };
 		4995178423316E2000438060 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4995178323316E2000438060 /* CoreLocation.framework */; };
 		49A66DFB2330AD5F000C7265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A66DFA2330AD5F000C7265 /* ViewController.swift */; };
 		49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D73A1B232EAFFD00A016C0 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		494C9F89233A72ED00BC6C0F /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		494C9F8B233A731800BC6C0F /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		494C9F8D233AA27C00BC6C0F /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		495F666A233C8B0F00491B87 /* RemoveAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsViewController.swift; sourceTree = "<group>"; };
 		4995178323316E2000438060 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		49A66DFA2330AD5F000C7265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49D73A18232EAFFD00A016C0 /* WhereAmI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereAmI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				49D73A1F232EAFFD00A016C0 /* Main.storyboard */,
+				495F666A233C8B0F00491B87 /* RemoveAdsViewController.swift */,
 				494C9F89233A72ED00BC6C0F /* Slide.swift */,
 				494C9F8B233A731800BC6C0F /* Slide.xib */,
 				49D73A27232EB00000A016C0 /* LaunchScreen.storyboard */,
@@ -287,6 +290,7 @@
 				8805BF6D2335F31A00E4D55E /* Location.swift in Sources */,
 				8805BF702335F36C00E4D55E /* HistoryItemsTableViewCell.swift in Sources */,
 				49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */,
+				495F666B233C8B0F00491B87 /* RemoveAdsViewController.swift in Sources */,
 				885526612336994C00CE7514 /* LinkAccountTableViewController.swift in Sources */,
 				494C9F8E233AA27C00BC6C0F /* OnboardingController.swift in Sources */,
 				8855266323369C8A00CE7514 /* InfoViewController.swift in Sources */,

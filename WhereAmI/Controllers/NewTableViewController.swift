@@ -39,35 +39,10 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
            
             self.interstitial.present(fromRootViewController: self)
         })
-//        if interstitial.isReady {
-//            interstitial.present(fromRootViewController: self)
-//        } else {
-//            print("Ad wasn't ready")
-//        }
+
     }
     
-//    func createAndLoadInterstitial() -> GADInterstitial {
-//        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-//        interstitial.delegate = self
-//        interstitial.load(GADRequest())
-//        return interstitial
-//    }
-//
-//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-//        interstitial = createAndLoadInterstitial()
-//    }
-    
-    
-    
-//    func update() {
-//        if interstitial.isReady {
-//            interstitial.present(fromRootViewController: self)
-//        } else {
-//            print("Ad wasn't ready")
-//        }
-//    }
-    
-    
+
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,13 +86,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if editingStyle == .delete {
-//        self.storedLocations.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
+
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
