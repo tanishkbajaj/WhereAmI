@@ -92,6 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     
     @IBAction func pinButtonAction(_ sender: Any) {
+        let linkedViewcontroller = LinkAccountTableViewController()
         
         let alert = UIAlertController(title: "Pin Name", message: "Set name so you can easily identify later!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -101,8 +102,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             textField.text = self.addressStreet
         })
         
-
-        if flag ==  true {
+       print("seeee thisssss", linkedViewcontroller.switchViewBool )
+        if linkedViewcontroller.switchViewBool {
             let currentLocation = Location(AddressLabel.text!, self.location.latitude, self.location.longitude, Date())
             self.sendingLocation.append(currentLocation)
             CoreDatabase.saveLocation(currentLocation)
