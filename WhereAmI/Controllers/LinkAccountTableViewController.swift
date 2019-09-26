@@ -6,14 +6,17 @@
 //  Copyright © 2019 Tanishk. All rights reserved.
 //
 import UIKit
+var flag: Bool?
+
 
 class LinkAccountTableViewController: UITableViewController {
     var options = ["Remove Ads", "How is works", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
     var copyright = "Copyright(c) 123 Apps Studio LLC"
-    
-    
+    var switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
     var quickPin = "Quick Pin"
+    
+    let switchView = UISwitch(frame: CGRect.zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,7 @@ class LinkAccountTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.backgroundColor = hexStringToUIColor(hex: "#DADADA")
+      //  switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
         
     }
     
@@ -57,9 +61,10 @@ class LinkAccountTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if indexPath.section ==  0{
             if indexPath.row == 0 {
-                let switchView = UISwitch(frame: CGRect.zero)
                 cell.addSubview(switchView)
                 cell.accessoryView = switchView
+                switchView.addTarget(self, action: #selector(self.switchValueDidChange), for: .valueChanged)
+                switchView.isOn =  UserDefaults.standard.bool(forKey: "switchState")
                 cell.textLabel?.text = quickPin
             }else{
                 cell.textLabel?.numberOfLines = 3
@@ -88,6 +93,21 @@ class LinkAccountTableViewController: UITableViewController {
         }
         
     }
+    @objc func switchValueDidChange(sender:UISwitch!) {
+//        if sender.isOn{
+//            flag = true
+//            print(flag!)
+//        }else{
+//            flag = false
+//            print(flag!)
+//        }
+        
+        UserDefaults.standard.set(sender.isOn, forKey: "switchState")
+    }
+    
+
+    
+    
     
     /*
      // Override to support conditional editing of the table view.

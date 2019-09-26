@@ -15,7 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     
     let locationManager = CLLocationManager()
- 
+    
     var location : Location = Location()
     
     var sendingLocation = [Location]()
@@ -75,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         if  !CoreDatabase.fetchLocations().isEmpty {
             let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)))
             source.name = "My Location"
-                        
+            
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: CoreDatabase.fetchLastLocation().latitude, longitude: CoreDatabase.fetchLastLocation().longitude)))
             
             destination.name = CoreDatabase.fetchLastLocation().address
@@ -92,6 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     
     @IBAction func pinButtonAction(_ sender: Any) {
+        let linkedViewcontroller = LinkAccountTableViewController()
         
         let alert = UIAlertController(title: "Pin Name", message: "Set name so you can easily identify later!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -101,24 +102,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             textField.text = self.addressStreet
         })
         
-        alert.addAction(UIAlertAction(title: "Pin It!", style: .default, handler: { action in
-            
-            if let address = alert.textFields?.first?.text {
-                let currentLocation = Location(address, self.location.latitude, self.location.longitude, Date())
-                self.sendingLocation.append(currentLocation)
-                CoreDatabase.saveLocation(currentLocation)
-                self.enableAndDisableHistoryButton()
-            }
-            
+       print("seeee thisssss", linkedViewcontroller.switchViewBool )
+        if linkedViewcontroller.switchViewBool {
+            let currentLocation = Location(AddressLabel.text!, self.location.latitude, self.location.longitude, Date())
+            self.sendingLocation.append(currentLocation)
+            CoreDatabase.saveLocation(currentLocation)
             
             let alert = UIAlertController(title: "Pinned It!", message: "You have saved the current address", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
-            
             self.present(alert, animated: true)
-        }))
-        
+            
+        }
+        else{
+            alert.addAction(UIAlertAction(title: "Pin It!", style: .default, handler: { action in
+                
+                if let address = alert.textFields?.first?.text {
+                    let currentLocation = Location(address, self.location.latitude, self.location.longitude, Date())
+                    self.sendingLocation.append(currentLocation)
+                    CoreDatabase.saveLocation(currentLocation)
+                }
+                
+                
+                let alert = UIAlertController(title: "Pinned It!", message: "You have saved the current address", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                
+                self.present(alert, animated: true)
+            }))
+        }
         self.present(alert, animated: true)
         
         
@@ -138,7 +152,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         if  segue.identifier == blogSegueIdentifier,
             let destination = segue.destination as? NewTableViewController {
-         //   destination.storedLocation = sendingLocation
+            //   destination.storedLocation = sendingLocation
             destination.getCurrLocation = location
             
             
