@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 import GoogleMobileAds
 
-class InfoViewController: UIViewController,GADBannerViewDelegate {
+class InfoViewController: UIViewController,GADBannerViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var BannerView: GADBannerView!
     
@@ -56,20 +56,23 @@ class InfoViewController: UIViewController,GADBannerViewDelegate {
     
     
     @IBAction func feedbackButton(_ sender: Any) {
-        if MFMailComposeViewController.canSendMail() {
-            let emailTitle = "Feedback"
-            let messageBody = "Feature request or bug report?"
-            let toRecipents = ["friend@stackoverflow.com"]
-            let mc: MFMailComposeViewController = MFMailComposeViewController()
-            mc.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
-            mc.setSubject(emailTitle)
-            mc.setMessageBody(messageBody, isHTML: false)
-            mc.setToRecipients(toRecipents)
-            
-            self.present(mc, animated: true, completion: nil)
-        } else {
-            // show failure alert
+        if MFMailComposeViewController.canSendMail(){
+            let mail =  MFMailComposeViewController()
+            mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+            mail.setToRecipients(["channappakg@gmail.com"])
+            mail.setMessageBody("Feedback for 'Where Am I'", isHTML: true)
+            present(mail, animated: true)
+        }else{
+            let alert = UIAlertController(title: "Error", message: "Sending Mail failed", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Cancel", style: .default
+                , handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?){
+        controller.dismiss(animated: true)
     }
     
     @IBAction func inviteFriendsButton(_ sender: Any) {
@@ -79,21 +82,5 @@ class InfoViewController: UIViewController,GADBannerViewDelegate {
         )
         present(activity, animated: true, completion: nil)
     }
-    
-    
-    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
-        switch result {
-        case .cancelled:
-            print("Mail cancelled")
-        case .saved:
-            print("Mail saved")
-        case .sent:
-            print("Mail sent")
-        case .failed:
-            print("Mail sent failure: \(error.localizedDescription)")
-        default:
-            break
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
+
 }
