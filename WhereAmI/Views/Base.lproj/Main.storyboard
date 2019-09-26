@@ -239,7 +239,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vu1-qK-4W2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4860" y="1521.5892053973014"/>
+            <point key="canvasLocation" x="3756" y="1763"/>
+        </scene>
+        <!--Onboarding Controller-->
+        <scene sceneID="2Sv-OE-aNe">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" id="Q5z-gy-qHY" customClass="OnboardingController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y1f-fU-PFX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2H-N7-Vdg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04V-Dt-uQv">
+                                <rect key="frame" x="79" y="608" width="227" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="tintColor" red="1" green="0.86317531569883732" blue="0.18560898886734756" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CZj-un-uax" kind="show" id="Yle-Wc-i8b"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-jD-XRA">
+                                <rect key="frame" x="134" y="527" width="107" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.79430390100188664" green="0.79430390100188664" blue="0.79430390100188664" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.89412146810000004" green="0.89412027599999999" blue="0.92647093530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V2H-N7-Vdg" firstAttribute="top" secondItem="mNQ-a0-q32" secondAttribute="top" id="1wL-Mv-xfl"/>
+                            <constraint firstItem="ONl-jD-XRA" firstAttribute="centerX" secondItem="V2H-N7-Vdg" secondAttribute="centerX" id="A6V-6i-Pmb"/>
+                            <constraint firstItem="V2H-N7-Vdg" firstAttribute="trailing" secondItem="mNQ-a0-q32" secondAttribute="trailing" id="JG5-A3-Mua"/>
+                            <constraint firstItem="mNQ-a0-q32" firstAttribute="trailing" secondItem="04V-Dt-uQv" secondAttribute="trailing" constant="69" id="LhZ-iL-nyJ"/>
+                            <constraint firstItem="V2H-N7-Vdg" firstAttribute="top" secondItem="mNQ-a0-q32" secondAttribute="top" id="XrC-ST-KYC"/>
+                            <constraint firstItem="ONl-jD-XRA" firstAttribute="leading" secondItem="mNQ-a0-q32" secondAttribute="leading" constant="134" id="ZX9-RU-8ag"/>
+                            <constraint firstItem="04V-Dt-uQv" firstAttribute="top" secondItem="ONl-jD-XRA" secondAttribute="bottom" constant="44" id="bDU-zM-xa6"/>
+                            <constraint firstItem="04V-Dt-uQv" firstAttribute="leading" secondItem="mNQ-a0-q32" secondAttribute="leading" constant="79" id="bYM-GK-z0n"/>
+                            <constraint firstAttribute="trailing" secondItem="V2H-N7-Vdg" secondAttribute="trailing" id="gZT-Tw-R79"/>
+                            <constraint firstItem="ONl-jD-XRA" firstAttribute="top" secondItem="mNQ-a0-q32" secondAttribute="top" constant="507" id="lIy-q3-KDH"/>
+                            <constraint firstItem="V2H-N7-Vdg" firstAttribute="leading" secondItem="mNQ-a0-q32" secondAttribute="leading" id="nOB-j4-LjF"/>
+                            <constraint firstItem="V2H-N7-Vdg" firstAttribute="leading" secondItem="y1f-fU-PFX" secondAttribute="leading" id="qzB-pQ-DAD"/>
+                            <constraint firstItem="mNQ-a0-q32" firstAttribute="bottom" secondItem="V2H-N7-Vdg" secondAttribute="bottom" id="x1E-e8-dSh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mNQ-a0-q32"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="ONl-jD-XRA" id="ecS-OD-TTr"/>
+                        <outlet property="scrollView" destination="V2H-N7-Vdg" id="CBV-t2-4uV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Om-IE-jXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128.8000000000002" y="-1.3493253373313345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Olj-7Y-lg1">
