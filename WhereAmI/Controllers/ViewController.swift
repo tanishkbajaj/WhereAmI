@@ -110,6 +110,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             
             let alert = UIAlertController(title: "Pinned It!", message: "You have saved the current address", preferredStyle: .alert)
             
+            enableAndDisableHistoryButton()
+            
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
             self.present(alert, animated: true)
@@ -126,6 +128,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                 
                 
                 let alert = UIAlertController(title: "Pinned It!", message: "You have saved the current address", preferredStyle: .alert)
+                self.enableAndDisableHistoryButton()
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 
