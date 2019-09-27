@@ -36,8 +36,20 @@ class DistanceCalculator {
             if let response = response, let route = response.routes.first {
                 print(route.distance)
                 completion(route.distance)
+            } else {
+                completion(-1.0)
             }
         }
     }
     
+}
+
+
+
+struct Distance {
+    var distance : Double = 0.0
+    var date : Date = Date()
+    func toFormattedMeter()->String {
+        return String(format: "%.2f", self.distance/1609.34)
+    }
 }

@@ -1,11 +1,3 @@
-//
-//  NewTableViewController.swift
-//  WhereAmI
-//
-//  Created by IMCS2 on 9/18/19.
-//  Copyright © 2019 Tanishk. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import GoogleMobileAds
@@ -15,17 +7,22 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     var storedLocations : [Location] = CoreDatabase.fetchLocations()
     var getCurrLocation: Location = Location()
     var interstitial: GADInterstitial!
-
-    @IBOutlet weak var bannerTableView: GADBannerView!
+    var distanceArray : [Double] = []
+    var distanceArr : [Distance] = []
+    var tableViewFlag : Bool = false
     
+    @IBOutlet weak var bannerTableView: GADBannerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nibName = UINib(nibName: "HistoryItemsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "HistoryItemsTableViewCell")
         
+        getDistanceArray()
+        
+        
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-
+        
         let request = GADRequest()
         interstitial.load(request)
         interstitial.delegate = self
@@ -36,13 +33,39 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         bannerTableView.delegate = self
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-           
+            
             self.interstitial.present(fromRootViewController: self)
         })
-
+        
+        //        if interstitial.isReady {
+        //            interstitial.present(fromRootViewController: self)
+        //        } else {
+        //            print("Ad wasn't ready")
+        //        }
     }
     
-
+    //    func createAndLoadInterstitial() -> GADInterstitial {
+    //        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+    //        interstitial.delegate = self
+    //        interstitial.load(GADRequest())
+    //        return interstitial
+    //    }
+    //
+    //    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+    //        interstitial = createAndLoadInterstitial()
+    //    }
+    
+    
+    
+    //    func update() {
+    //        if interstitial.isReady {
+    //            interstitial.present(fromRootViewController: self)
+    //        } else {
+    //            print("Ad wasn't ready")
+    //        }
+    //    }
+    
+    
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,11 +90,48 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         
         cell.LocationNameLabel.text = storedLocations.reversed()[indexPath.row].address
         
-        cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
         cell.TimeLabel.text = timeFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
+        cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
+        
+        if distanceArray.count == storedLocations.count {
+            distanceArr = distanceArr.sorted(by: { $0.date > $1.date })
+            
+            var label =  String(distanceArr[indexPath.row].toFormattedMeter()) + " mi away"
+            if distanceArr[indexPath.row].distance < 0 {
+                label = "NA"
+            }
+            cell.DistanceLabel.text = label
+        }
+        
         return cell
+    }
+    
+    func getDistanceArray() {
+        
+        let group = DispatchGroup()
+        
+        for index in 0...storedLocations.count-1{
+            group.enter()
+            DistanceCalculator.routingDistance(getCurrLocation, storedLocations.reversed()[index]) { distance in
+                self.distanceArray.append(distance)
+                self.distanceArr.append(Distance(distance: distance, date: self.storedLocations.reversed()[index].date))
+                print("Distance \(self.getCurrLocation) to \(self.storedLocations.reversed()[index]) : " + String(distance))
+                //  self.tableView.reloadData()
+                
+                self.tableViewFlag = true
+                self.tableView.reloadData()
+                
+                group.leave()
+            }
+        }
+        
+        //  group.wait()
+        
+        if tableViewFlag == true {
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -86,7 +146,13 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
-
+    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //        if editingStyle == .delete {
+    //        self.storedLocations.remove(at: indexPath.row)
+    //        tableView.deleteRows(at: [indexPath], with: .fade)
+    //        }
+    //    }
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
@@ -97,13 +163,13 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             var temporaryArray = Array(self.storedLocations.reversed())
             CoreDatabase.deleteLocation(temporaryArray[indexPath.row])
             temporaryArray.remove(at: indexPath.row)
-      
+            
             self.storedLocations = Array(temporaryArray.reversed())
-           // tableView.reloadData()
+            // tableView.reloadData()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
             // tableView.reloadData()
-           
+            
         }
         
         let share = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
@@ -144,6 +210,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         return [delete, share]
         
     }
-
+    
+    
     
 }
