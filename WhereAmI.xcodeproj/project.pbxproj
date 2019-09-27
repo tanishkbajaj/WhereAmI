@@ -25,6 +25,7 @@
 		8805BF6D2335F31A00E4D55E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805BF6C2335F31A00E4D55E /* Location.swift */; };
 		8805BF702335F36C00E4D55E /* HistoryItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805BF6E2335F36C00E4D55E /* HistoryItemsTableViewCell.swift */; };
 		8805BF712335F36C00E4D55E /* HistoryItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8805BF6F2335F36C00E4D55E /* HistoryItemsTableViewCell.xib */; };
+		882D9AB6233D504C007C1BCF /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D9AB5233D504C007C1BCF /* Distance.swift */; };
 		885526612336994C00CE7514 /* LinkAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885526602336994C00CE7514 /* LinkAccountTableViewController.swift */; };
 		8855266323369C8A00CE7514 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855266223369C8A00CE7514 /* InfoViewController.swift */; };
 		885526672336C86D00CE7514 /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885526662336C86D00CE7514 /* CoreDatabase.swift */; };
@@ -52,6 +53,7 @@
 		8805BF6C2335F31A00E4D55E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8805BF6E2335F36C00E4D55E /* HistoryItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemsTableViewCell.swift; sourceTree = "<group>"; };
 		8805BF6F2335F36C00E4D55E /* HistoryItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryItemsTableViewCell.xib; sourceTree = "<group>"; };
+		882D9AB5233D504C007C1BCF /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		885526602336994C00CE7514 /* LinkAccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountTableViewController.swift; sourceTree = "<group>"; };
 		8855266223369C8A00CE7514 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		885526662336C86D00CE7514 /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				8805BF6C2335F31A00E4D55E /* Location.swift */,
 				885526662336C86D00CE7514 /* CoreDatabase.swift */,
+				882D9AB5233D504C007C1BCF /* Distance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				49A66DFB2330AD5F000C7265 /* ViewController.swift in Sources */,
 				8805BF6D2335F31A00E4D55E /* Location.swift in Sources */,
 				8805BF702335F36C00E4D55E /* HistoryItemsTableViewCell.swift in Sources */,
+				882D9AB6233D504C007C1BCF /* Distance.swift in Sources */,
 				49D73A1C232EAFFD00A016C0 /* AppDelegate.swift in Sources */,
 				495F666B233C8B0F00491B87 /* RemoveAdsViewController.swift in Sources */,
 				885526612336994C00CE7514 /* LinkAccountTableViewController.swift in Sources */,

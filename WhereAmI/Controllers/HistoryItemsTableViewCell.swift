@@ -16,6 +16,7 @@ class HistoryItemsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var DateLabel: UILabel!
     
+    @IBOutlet weak var DistanceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
