@@ -9,9 +9,16 @@
 import UIKit
 
 class RemoveAdsViewController: UIViewController {
-
+    
+    @IBOutlet weak var restorePurchases: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        restorePurchases?.layer.cornerRadius = 8.0
+        restorePurchases?.layer.borderWidth = 1.0
+        restorePurchases?.layer.borderColor = UIColor.orange.cgColor
+        
+        
    // self.navigationController?.navigationBar.backItem?.title = "Cancel"
  
         // Do any additional setup after loading the view.
