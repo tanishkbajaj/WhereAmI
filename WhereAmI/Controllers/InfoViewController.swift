@@ -44,13 +44,13 @@ class InfoViewController: UIViewController,GADBannerViewDelegate, MFMailComposeV
         
         feedbackButton?.layer.cornerRadius = 8.0
         feedbackButton?.layer.borderWidth = 1.0
-        feedbackButton?.layer.cornerRadius = 5.0
+        feedbackButton?.layer.cornerRadius = 25.0
         feedbackButton?.layer.borderWidth = 1
         feedbackButton?.layer.borderColor = UIColor.black.cgColor
         
         inviteFriendsButton?.layer.cornerRadius = 8.0
         inviteFriendsButton?.layer.borderWidth = 1.0
-        inviteFriendsButton?.layer.cornerRadius = 5.0
+        inviteFriendsButton?.layer.cornerRadius = 25.0
         inviteFriendsButton?.layer.borderWidth = 1
         inviteFriendsButton?.layer.borderColor = UIColor.black.cgColor
 
