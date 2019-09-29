@@ -172,29 +172,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="His-ZB-uPL">
-                                <rect key="frame" x="16" y="617" width="343" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Invite Friends">
-                                            <attributes>
-                                                <color key="NSColor" red="0.12841342673663114" green="0.24046748715638255" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="17" name="ArialRoundedMTBold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="inviteFriendsButton:" destination="qKW-FR-2UN" eventType="touchUpInside" id="wXg-KD-uCQ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjw-86-fxq">
                                 <rect key="frame" x="16" y="64" width="343" height="393.5"/>
                                 <color key="backgroundColor" red="0.78817549935387199" green="0.94273673128591162" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="A8p-jd-4yn"/>
+                                    <constraint firstAttribute="height" constant="393.5" id="jS2-Q2-Gbv"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. The helps you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</mutableString>
+                                        <string key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. The helps you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="16" name="Avenir-Book"/>
@@ -204,8 +191,12 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-Oq-20n">
-                                <rect key="frame" x="16" y="563" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-Oq-20n">
+                                <rect key="frame" x="16" y="480" width="343" height="32.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="CsS-XO-J7T"/>
+                                    <constraint firstAttribute="height" constant="32.5" id="jVr-Jn-YtB"/>
+                                </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Feedback">
@@ -221,28 +212,54 @@
                                     <action selector="feedbackButton:" destination="qKW-FR-2UN" eventType="touchUpInside" id="zvP-D0-15g"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0TU-9n-2fw" customClass="GADBannerView">
-                                <rect key="frame" x="16" y="480" width="343" height="62"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TU-9n-2fw" customClass="GADBannerView">
+                                <rect key="frame" x="27.5" y="587" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="8ya-F0-HFX"/>
+                                    <constraint firstAttribute="height" constant="50" id="yY9-05-K7A"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="His-ZB-uPL">
+                                <rect key="frame" x="16" y="520" width="343" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Z4Q-le-Kxp"/>
+                                    <constraint firstAttribute="width" constant="343" id="s9x-sm-Sfh"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Invite Friends">
+                                            <attributes>
+                                                <color key="NSColor" red="0.12841342673663114" green="0.24046748715638255" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="17" name="ArialRoundedMTBold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="inviteFriendsButton:" destination="qKW-FR-2UN" eventType="touchUpInside" id="wXg-KD-uCQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.79654610278897386" green="0.93389216235373418" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="His-ZB-uPL" secondAttribute="trailing" constant="16" id="4V2-pY-rXL"/>
-                            <constraint firstItem="fjw-86-fxq" firstAttribute="top" secondItem="9BD-5a-4jm" secondAttribute="top" id="7CT-iq-pRF"/>
-                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="sEY-Oq-20n" secondAttribute="trailing" constant="16" id="7Dy-MP-mdi"/>
-                            <constraint firstItem="sEY-Oq-20n" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="7Kq-iE-W01"/>
-                            <constraint firstItem="0TU-9n-2fw" firstAttribute="top" secondItem="fjw-86-fxq" secondAttribute="bottom" constant="22.5" id="AFY-7c-7TE"/>
-                            <constraint firstItem="His-ZB-uPL" firstAttribute="top" secondItem="sEY-Oq-20n" secondAttribute="bottom" constant="24" id="EOy-za-kc2"/>
-                            <constraint firstItem="0TU-9n-2fw" firstAttribute="top" secondItem="fjw-86-fxq" secondAttribute="bottom" constant="22.5" id="FDJ-V0-0f8"/>
-                            <constraint firstItem="sEY-Oq-20n" firstAttribute="top" secondItem="0TU-9n-2fw" secondAttribute="bottom" constant="21" id="FI1-bc-BDF"/>
-                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="0TU-9n-2fw" secondAttribute="trailing" constant="16" id="Srf-eE-Cqp"/>
-                            <constraint firstItem="0TU-9n-2fw" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="frL-5k-HRw"/>
-                            <constraint firstItem="sEY-Oq-20n" firstAttribute="top" secondItem="0TU-9n-2fw" secondAttribute="bottom" constant="21" id="hDl-0Q-6kX"/>
-                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="fjw-86-fxq" secondAttribute="trailing" constant="16" id="htU-Wy-sC5"/>
-                            <constraint firstItem="His-ZB-uPL" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="qwO-Qs-p6c"/>
-                            <constraint firstItem="His-ZB-uPL" firstAttribute="top" secondItem="sEY-Oq-20n" secondAttribute="bottom" constant="24" id="upe-kt-1xK"/>
-                            <constraint firstItem="fjw-86-fxq" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="x2z-Cd-El5"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="top" secondItem="His-ZB-uPL" secondAttribute="bottom" constant="35" id="1uB-f6-QsY"/>
+                            <constraint firstItem="fjw-86-fxq" firstAttribute="top" secondItem="9BD-5a-4jm" secondAttribute="top" id="2vx-cw-eet"/>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="sEY-Oq-20n" secondAttribute="trailing" constant="16" id="33L-dx-3Cu"/>
+                            <constraint firstItem="His-ZB-uPL" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="7tt-AZ-eb4"/>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="His-ZB-uPL" secondAttribute="trailing" constant="16" id="DKF-kq-FpT"/>
+                            <constraint firstItem="sEY-Oq-20n" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="LyS-40-TrI"/>
+                            <constraint firstItem="sEY-Oq-20n" firstAttribute="top" secondItem="fjw-86-fxq" secondAttribute="bottom" constant="22.5" id="Ty3-bC-pou"/>
+                            <constraint firstItem="His-ZB-uPL" firstAttribute="top" secondItem="sEY-Oq-20n" secondAttribute="bottom" constant="7.5" id="ZAY-70-yVf"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="centerX" secondItem="sEY-Oq-20n" secondAttribute="centerX" id="ccU-zf-XUF"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="centerX" secondItem="His-ZB-uPL" secondAttribute="centerX" id="dya-0s-1Lu"/>
+                            <constraint firstItem="0TU-9n-2fw" firstAttribute="top" secondItem="His-ZB-uPL" secondAttribute="bottom" constant="35" id="iqs-3S-ozM"/>
+                            <constraint firstItem="His-ZB-uPL" firstAttribute="top" secondItem="sEY-Oq-20n" secondAttribute="bottom" constant="7.5" id="jD0-mV-Okk"/>
+                            <constraint firstItem="sEY-Oq-20n" firstAttribute="top" secondItem="fjw-86-fxq" secondAttribute="bottom" constant="22.5" id="oh0-pS-DoG"/>
+                            <constraint firstItem="fjw-86-fxq" firstAttribute="leading" secondItem="9BD-5a-4jm" secondAttribute="leading" constant="16" id="quL-XW-EAl"/>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="bottom" secondItem="0TU-9n-2fw" secondAttribute="bottom" constant="30" id="siO-po-Jxr"/>
+                            <constraint firstItem="9BD-5a-4jm" firstAttribute="trailing" secondItem="fjw-86-fxq" secondAttribute="trailing" constant="16" id="utG-db-bsk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9BD-5a-4jm"/>
                     </view>
@@ -373,7 +390,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N6p-Q0-fwm">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.63189916570000004" blue="0.059235238230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.33999947842136413" green="0.71004117857051718" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
