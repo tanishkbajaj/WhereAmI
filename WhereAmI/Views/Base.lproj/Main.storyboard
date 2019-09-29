@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="3925.5999999999999" y="765.96701649175418"/>
         </scene>
-        <!--New Table View Controller-->
+        <!--Saved Pins-->
         <scene sceneID="VQD-Di-Sbc">
             <objects>
-                <tableViewController id="cpO-Ob-toN" customClass="NewTableViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved Pins" id="cpO-Ob-toN" customClass="NewTableViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CVI-ta-LzJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="JST-0t-D6R">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="JST-0t-D6R" customClass="HistoryItemsTableViewCell" customModule="WhereAmI" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JST-0t-D6R" id="8Kn-LN-F4l">
