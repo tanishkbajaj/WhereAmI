@@ -192,7 +192,6 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         
         for index in 0...storedLocations.count-1{
             group.enter()
-            DistanceCalculator.DistanceAndDuration(getCurrLocation, storedLocations.reversed()[index])
             DistanceCalculator.routingDistance(getCurrLocation, storedLocations.reversed()[index]) { distance in
                 self.distanceArray.append(distance)
                 self.distanceArr.append(Distance(distance: distance, date: self.storedLocations.reversed()[index].date))
