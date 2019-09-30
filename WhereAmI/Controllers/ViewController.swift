@@ -35,7 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    @IBOutlet weak var BannerView2: GADBannerView!
+  //  @IBOutlet weak var BannerView2: GADBannerView!
 
     @IBAction func SettingBarButton(_ sender: Any) {
         
@@ -194,17 +194,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             mapView.setCenter(coor, animated: true)
         }
         
-        shareButton?.layer.cornerRadius = 8.0
-        shareButton?.layer.borderWidth = 1.0
-        shareButton?.layer.borderColor = UIColor.orange.cgColor
-        
-        pinButton?.layer.cornerRadius = 8.0
-        pinButton?.layer.borderWidth = 1.0
-        pinButton?.layer.borderColor = UIColor.orange.cgColor
-        
-        historyButton?.layer.cornerRadius = 8.0
-        historyButton?.layer.borderWidth = 1.0
-        historyButton?.layer.borderColor = UIColor.orange.cgColor
+//        shareButton?.layer.cornerRadius = 8.0
+//        shareButton?.layer.borderWidth = 1.0
+//        shareButton?.layer.borderColor = UIColor.orange.cgColor
+//
+//        pinButton?.layer.cornerRadius = 8.0
+//        pinButton?.layer.borderWidth = 1.0
+//        pinButton?.layer.borderColor = UIColor.orange.cgColor
+//
+//        historyButton?.layer.cornerRadius = 8.0
+//        historyButton?.layer.borderWidth = 1.0
+//        historyButton?.layer.borderColor = UIColor.orange.cgColor
         
         //adding Ad
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
@@ -212,10 +212,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         bannerView.load(GADRequest())
         bannerView.delegate = self
         
-        BannerView2.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        BannerView2.rootViewController = self
-        BannerView2.load(GADRequest())
-        BannerView2.delegate = self
+//        BannerView2.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        BannerView2.rootViewController = self
+//        BannerView2.load(GADRequest())
+//        BannerView2.delegate = self
+        
+        ViewController.styleFilledButton(shareButton)
+        ViewController.styleHollowButton(shareButton)
+        ViewController.styleFilledButton(pinButton)
+        ViewController.styleHollowButton(pinButton)
+        ViewController.styleFilledButton(historyButton)
+        ViewController.styleHollowButton(historyButton)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -275,7 +283,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                     //                    }
                     
                     if pm.name != nil {
-                        addressString = addressString + pm.name! + ", "
+                        addressString = addressString + pm.name! + ", \n"
                     }
                     
                     if pm.locality != nil {
@@ -293,7 +301,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                     //                        addressString = addressString + pm.subLocality! + ", "
                     //                    }
                     if pm.postalCode != nil {
-                        addressString = addressString + pm.postalCode! + ", "
+                        addressString = addressString + pm.postalCode! + ", \n"
                     }
                     
                     if pm.country != nil {
@@ -311,6 +319,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     func enableAndDisableHistoryButton () {
         
         if CoreDatabase.fetchLocations().isEmpty {self.historyButton.isEnabled = false} else {self.historyButton.isEnabled = true}
+    }
+    
+    static func styleFilledButton(_ button:UIButton) {
+        
+        // Filled rounded corner style
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.white
+    }
+    
+    static func styleHollowButton(_ button:UIButton) {
+        // Hollow rounded corner style
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.black
+        button.titleLabel?.textColor = UIColor.white
+        
     }
     
 }
