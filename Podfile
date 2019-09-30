@@ -8,6 +8,4 @@ target 'WhereAmI' do
   # Pods for WhereAmI
     pod 'Firebase/Analytics'
     pod 'Firebase/AdMob'
-    pod 'SwiftyJSON' , '3.0.0'
-    pod 'AFNetworking' , '2.5.4'
 end
