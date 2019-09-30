@@ -14,7 +14,7 @@ class LinkAccountTableViewController: UITableViewController {
     
     var options = ["Remove Ads", "How is works", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
-    var copyright = "Copyright(c) 123 Apps Studio LLC"
+    var copyright = "Copyright(c) TCS"
     var switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
     var quickPin = "Quick Pin"
     
@@ -167,10 +167,10 @@ class LinkAccountTableViewController: UITableViewController {
         //Diables the auto resize of the image
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Settings"
-        label.textColor = .white
+        //label.textColor = .white
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.font = UIFont.boldSystemFont(ofSize: 22.0)
+       // label.font = UIFont.systemFont(ofSize: 20)
+      //  label.font = UIFont.boldSystemFont(ofSize: 22.0)
         navigationItem.titleView = label
     }
     

@@ -121,6 +121,7 @@
 			children = (
 				494C9F8D233AA27C00BC6C0F /* OnboardingController.swift */,
 				8805BF6E2335F36C00E4D55E /* HistoryItemsTableViewCell.swift */,
+				495F666A233C8B0F00491B87 /* RemoveAdsViewController.swift */,
 				49A66DFA2330AD5F000C7265 /* ViewController.swift */,
 				492F97BA2332CB9D00705229 /* NewTableViewController.swift */,
 				885526602336994C00CE7514 /* LinkAccountTableViewController.swift */,
@@ -133,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				49D73A1F232EAFFD00A016C0 /* Main.storyboard */,
-				495F666A233C8B0F00491B87 /* RemoveAdsViewController.swift */,
 				494C9F89233A72ED00BC6C0F /* Slide.swift */,
 				494C9F8B233A731800BC6C0F /* Slide.xib */,
 				49D73A27232EB00000A016C0 /* LaunchScreen.storyboard */,

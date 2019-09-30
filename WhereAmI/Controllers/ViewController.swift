@@ -173,7 +173,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
  
         self.mapView.showsUserLocation = true
         self.locationManager.requestAlwaysAuthorization()
@@ -331,11 +332,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     
     static func styleHollowButton(_ button:UIButton) {
         // Hollow rounded corner style
-        button.layer.borderWidth = 2
+        button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.black
         button.titleLabel?.textColor = UIColor.white
+        button.layer.borderColor = UIColor.green.cgColor
         
     }
     

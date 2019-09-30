@@ -72,25 +72,28 @@
                                     <constraint firstAttribute="height" constant="50" id="bXp-aD-vyy"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-Pv-YGZ">
-                                <rect key="frame" x="0.0" y="473" width="375" height="119"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AZ6-Pv-YGZ">
+                                <rect key="frame" x="30" y="473" width="315" height="119"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-wg-UOW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Pin"/>
                                         <connections>
                                             <action selector="pinButtonAction:" destination="hHO-fx-t25" eventType="touchUpInside" id="5r8-1o-7lz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmY-HX-gl0">
-                                        <rect key="frame" x="0.0" y="46.5" width="375" height="26"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="315" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Share"/>
                                         <connections>
                                             <action selector="shareButtonAction:" destination="hHO-fx-t25" eventType="touchUpInside" id="7wH-Pv-m1N"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKV-7l-AcJ">
-                                        <rect key="frame" x="0.0" y="92.5" width="375" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="315" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="History"/>
                                         <connections>
                                             <action selector="historyButtonAction:" destination="hHO-fx-t25" eventType="touchUpInside" id="CsC-O4-OpG"/>
@@ -116,7 +119,7 @@
                             <constraint firstItem="WSb-lp-1SW" firstAttribute="top" secondItem="G7u-kb-FOE" secondAttribute="bottom" constant="-74" id="Hdn-C6-0XD"/>
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="S93-qK-gqW" secondAttribute="trailing" id="I2z-OI-XCJ"/>
                             <constraint firstItem="G7u-kb-FOE" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" id="KjA-A4-aBh"/>
-                            <constraint firstItem="AZ6-Pv-YGZ" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" id="L5E-5P-Tui"/>
+                            <constraint firstItem="AZ6-Pv-YGZ" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" constant="30" id="L5E-5P-Tui"/>
                             <constraint firstItem="dX5-OZ-ZCB" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" id="TgI-QO-qdJ"/>
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="v8p-Om-PmI" secondAttribute="trailing" constant="27.5" id="VSM-Cp-JgO"/>
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="WSb-lp-1SW" secondAttribute="trailing" id="Yrb-jV-99B"/>
@@ -127,7 +130,7 @@
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="bottom" secondItem="v8p-Om-PmI" secondAttribute="bottom" constant="10" id="ecM-MX-1Q0"/>
                             <constraint firstItem="xaR-Le-GYX" firstAttribute="centerX" secondItem="S93-qK-gqW" secondAttribute="centerX" id="exX-3X-jIq"/>
                             <constraint firstItem="S93-qK-gqW" firstAttribute="top" secondItem="G7u-kb-FOE" secondAttribute="bottom" constant="-1" id="g9G-F9-Jpy"/>
-                            <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="AZ6-Pv-YGZ" secondAttribute="trailing" id="iqm-BH-FCz"/>
+                            <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="AZ6-Pv-YGZ" secondAttribute="trailing" constant="30" id="iqm-BH-FCz"/>
                             <constraint firstItem="v8p-Om-PmI" firstAttribute="top" secondItem="AZ6-Pv-YGZ" secondAttribute="bottom" constant="15" id="mqC-FR-vdU"/>
                             <constraint firstItem="G7u-kb-FOE" firstAttribute="top" secondItem="cjD-2B-EaJ" secondAttribute="top" id="qHI-an-SkM"/>
                             <constraint firstItem="AZ6-Pv-YGZ" firstAttribute="top" secondItem="xaR-Le-GYX" secondAttribute="bottom" constant="41.5" id="tVu-hy-mV0"/>
@@ -144,7 +147,7 @@
                                 <segue destination="mlO-LQ-6jD" kind="show" id="b33-u2-mdF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Star" image="star" id="ceA-np-0dl">
+                        <barButtonItem key="rightBarButtonItem" title="Rate App" id="ceA-np-0dl">
                             <connections>
                                 <action selector="RateOnAppStoreButton:" destination="hHO-fx-t25" id="eBZ-19-0qw"/>
                             </connections>
@@ -200,16 +203,16 @@
             </objects>
             <point key="canvasLocation" x="4918" y="789"/>
         </scene>
-        <!--About "Whr Am I?" App-->
+        <!--About Location Finder App-->
         <scene sceneID="iDg-G2-R6c">
             <objects>
-                <viewController storyboardIdentifier="infoController" title="About &quot;Whr Am I?&quot; App" id="qKW-FR-2UN" customClass="InfoViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoController" title="About Location Finder App" id="qKW-FR-2UN" customClass="InfoViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K6u-zC-Kd8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjw-86-fxq">
-                                <rect key="frame" x="16" y="64" width="343" height="338.5"/>
+                                <rect key="frame" x="16" y="64" width="343" height="386"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="A8p-jd-4yn"/>
@@ -217,7 +220,7 @@
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. The helps you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</mutableString>
+                                        <string key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. The helps you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="15" name="Avenir-Book"/>
@@ -228,7 +231,7 @@
                                 <color key="highlightedColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-Oq-20n">
-                                <rect key="frame" x="16" y="425" width="343" height="32.5"/>
+                                <rect key="frame" x="16" y="472.5" width="343" height="32.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="CsS-XO-J7T"/>
                                     <constraint firstAttribute="height" constant="32.5" id="jVr-Jn-YtB"/>
@@ -249,7 +252,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TU-9n-2fw" customClass="GADBannerView">
-                                <rect key="frame" x="27.5" y="539.5" width="320" height="50"/>
+                                <rect key="frame" x="27.5" y="587" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="8ya-F0-HFX"/>
@@ -257,7 +260,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="His-ZB-uPL">
-                                <rect key="frame" x="16" y="472.5" width="343" height="32"/>
+                                <rect key="frame" x="16" y="520" width="343" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Z4Q-le-Kxp"/>
                                     <constraint firstAttribute="width" constant="343" id="s9x-sm-Sfh"/>
@@ -309,10 +312,10 @@
             </objects>
             <point key="canvasLocation" x="3756" y="1762.6686656671666"/>
         </scene>
-        <!--Remove Ads View Controller-->
+        <!--Remove Ads-->
         <scene sceneID="W0K-eF-Utf">
             <objects>
-                <viewController storyboardIdentifier="removeADs" id="Iya-NV-zrU" customClass="RemoveAdsViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="removeADs" title="Remove Ads" id="Iya-NV-zrU" customClass="RemoveAdsViewController" customModule="WhereAmI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W8d-fb-jQh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,6 +472,5 @@
         <image name=" clock" width="100" height="100"/>
         <image name="info" width="50" height="50"/>
         <image name="settings" width="50" height="50"/>
-        <image name="star" width="50" height="50"/>
     </resources>
 </document>
