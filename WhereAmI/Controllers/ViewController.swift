@@ -104,7 +104,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
        print("seeee thisssss", linkedViewcontroller.switchViewBool )
         if linkedViewcontroller.switchViewBool {
-            let currentLocation = Location(AddressLabel.text!, self.location.latitude, self.location.longitude, Date())
+            let currentLocation = Location(self.addressStreet, self.location.latitude, self.location.longitude, Date())
             self.sendingLocation.append(currentLocation)
             CoreDatabase.saveLocation(currentLocation)
             

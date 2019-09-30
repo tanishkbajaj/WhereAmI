@@ -10,6 +10,8 @@ var flag: Bool?
 
 
 class LinkAccountTableViewController: UITableViewController {
+
+    
     var options = ["Remove Ads", "How is works", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
     var copyright = "Copyright(c) 123 Apps Studio LLC"
@@ -20,6 +22,9 @@ class LinkAccountTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationItems()
+        
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -102,6 +107,7 @@ class LinkAccountTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             
             if indexPath.row == 0 {
@@ -110,6 +116,8 @@ class LinkAccountTableViewController: UITableViewController {
                 let removeADsController = storyBoard.instantiateViewController(withIdentifier: "removeADs")
                 
                 self.navigationController?.pushViewController(removeADsController, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
+
                 
             }
             
@@ -150,6 +158,20 @@ class LinkAccountTableViewController: UITableViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    
+    
+    private func setupNavigationItems() {
+        let label = UILabel()
+        //Diables the auto resize of the image
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Settings"
+        label.textColor = .white
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 22.0)
+        navigationItem.titleView = label
     }
     
 }

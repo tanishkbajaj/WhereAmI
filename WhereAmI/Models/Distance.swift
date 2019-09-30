@@ -8,6 +8,8 @@
 
 import Foundation
 import MapKit
+import SwiftyJSON
+import AFNetworking
 
 
 class DistanceCalculator {
@@ -42,6 +44,76 @@ class DistanceCalculator {
         }
     }
     
+    static func DistanceAndDuration(_ souLocation: Location, _ destLocation: Location) {
+        let google_directions_places_key = "AIzaSyAJxl8F4I92B9PVnYko6GGbnQ2evW2Ce7g"
+    var urlString = String(format:"https://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&alternatives=%@&mode=%@&key=%@",souLocation.latitude, souLocation.latitude, destLocation.latitude, destLocation.longitude, "true","driving", google_directions_places_key)
+    
+    urlString = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
+    
+    
+    let manager  = AFHTTPRequestOperationManager()
+    
+    manager.responseSerializer = AFJSONResponseSerializer(readingOptions: JSONSerialization.ReadingOptions.allowFragments) as AFJSONResponseSerializer
+    
+    manager.requestSerializer = AFJSONRequestSerializer() as AFJSONRequestSerializer
+    
+    manager.responseSerializer.acceptableContentTypes = NSSet(objects:"application/json", "text/html", "text/plain", "text/json", "text/javascript", "audio/wav") as Set<NSObject>
+    
+    
+    
+    manager.post(urlString, parameters: nil, success: { (operation, response) in
+    
+    
+    if(response != nil)
+    {
+    let parsedData = JSON(response!)
+    
+    print("parsedData12554 : \(parsedData)")
+    
+    print("parsed : \(parsedData["status"])")
+    
+    if(parsedData["status"] == "OK")
+    {
+    
+    let routes = parsedData["routes"][0]
+    
+    print("Routesss260 \(routes)")
+    
+    let legs = routes["legs"][0]
+    
+    let distance = legs["distance"]
+    
+    let duration = legs["duration"]
+    
+    let disValue = distance["value"].double!
+    
+    let durValue = duration["value"].double! / 3600.0
+    
+    print("disValue250 \(disValue)")
+    
+    print("durValue250 \(durValue)")
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    }
+    
+    
+    
+    }) { (operation, error) in
+    
+    
+    print("eeee2566\(error)")
+    
+    
+    }
+    }
+    
 }
 
 
@@ -49,7 +121,10 @@ class DistanceCalculator {
 struct Distance {
     var distance : Double = 0.0
     var date : Date = Date()
-    func toFormattedMeter()->String {
+    func toFormattedMile()->String {
         return String(format: "%.2f", self.distance/1609.34)
+    }
+    func toFormattedKilo()->String {
+        return String(format: "%.2f", self.distance/1000.00)
     }
 }
