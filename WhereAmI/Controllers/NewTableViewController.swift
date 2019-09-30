@@ -9,14 +9,42 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     var interstitial: GADInterstitial!
     var distanceArray : [Double] = []
     var distanceArr : [Distance] = []
+    
     var tableViewFlag : Bool = false
     
+    
+    
+    
     @IBOutlet weak var bannerTableView: GADBannerView!
+    var segmentedController: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let nibName = UINib(nibName: "HistoryItemsTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "HistoryItemsTableViewCell")
+        tableView.rowHeight = 80
+        
+        tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+        
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 50;
+        
+        //tableView.separatorColor = .blue
+        //tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        //table.separatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+        
+        let items = ["Mi", "Km"]
+        segmentedController = UISegmentedControl(items: items)
+        segmentedController.selectedSegmentIndex = 0
+        
+        
+//        navigationItem.rightBarButtonItem = segmentedController
+//        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+       
+        
+        
         
         getDistanceArray()
         
@@ -31,6 +59,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         bannerTableView.rootViewController = self
         bannerTableView.load(GADRequest())
         bannerTableView.delegate = self
+        bannerTableView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             
@@ -43,6 +72,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         //            print("Ad wasn't ready")
         //        }
     }
+    
     
     //    func createAndLoadInterstitial() -> GADInterstitial {
     //        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
@@ -68,45 +98,93 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     
     
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (storedLocations.count)
     }
     
+   
+    
+
+//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryItemsTableViewCell", for: indexPath) as! HistoryItemsTableViewCell
         
+      
+        
         let dateFormatter = DateFormatter()
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "hh:mm a"
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+//        let timeFormatter = DateFormatter()
+//        timeFormatter.dateFormat = "hh:mm a"
+        dateFormatter.dateFormat = "MM/dd/yy"
         
         
         cell.LocationNameLabel.text = storedLocations.reversed()[indexPath.row].address
         
-        
-        cell.TimeLabel.text = timeFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
-        
+//
+//        cell.TimeLabel.text = timeFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
+//
         cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
         if distanceArray.count == storedLocations.count {
             distanceArr = distanceArr.sorted(by: { $0.date > $1.date })
             
-            var label =  String(distanceArr[indexPath.row].toFormattedMeter()) + " mi away"
-            if distanceArr[indexPath.row].distance < 0 {
-                label = "NA"
+            var DistanceLabel = ""
+            switch segmentedController.selectedSegmentIndex
+            {
+            case 0:
+                DistanceLabel =  String(distanceArr[indexPath.row].toFormattedMile()) + " Mi away"
+            case 1:
+                DistanceLabel =  String(distanceArr[indexPath.row].toFormattedKilo()) + " Km away"
+
+            default:
+                DistanceLabel = "NA"
             }
-            cell.DistanceLabel.text = label
+            
+            if distanceArr[indexPath.row].distance < 0 {
+                DistanceLabel = "NA"
+            }
+            cell.DistanceLabel.text = DistanceLabel
         }
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+
+            let headerView:UIView = UIView()
+            headerView.frame = CGRect(x : 0, y: 0, width: tableView.frame.width, height: 0)
+
+            
+        
+            segmentedController.addTarget(self, action: #selector(indexChanged(_ :)), for: .valueChanged)
+            segmentedController.frame = CGRect(x: 280, y: 10, width: 75, height: 30)
+        
+//            segmentedController.translatesAutoresizingMaskIntoConstraints = false
+        
+//            segmentedController.trailingAnchor.constraint(equalTo: tableView.rightAnchor).isActive = true
+//
+//            NSLayoutConstraint.activate([
+//            //    segmentedController.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
+//            //    segmentedController.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//                segmentedController.trailingAnchor.constraint(equalTo: headerView.trailingAnchor)
+//                ])
+        
+            headerView.addSubview(segmentedController)
+            return headerView
+        
+    }
+    
+    @objc func indexChanged(_ sender: UISegmentedControl)
+    {
+        self.tableView.reloadData()
+    }
+    
     
     func getDistanceArray() {
         
@@ -114,6 +192,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         
         for index in 0...storedLocations.count-1{
             group.enter()
+            DistanceCalculator.DistanceAndDuration(getCurrLocation, storedLocations.reversed()[index])
             DistanceCalculator.routingDistance(getCurrLocation, storedLocations.reversed()[index]) { distance in
                 self.distanceArray.append(distance)
                 self.distanceArr.append(Distance(distance: distance, date: self.storedLocations.reversed()[index].date))
@@ -136,6 +215,8 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+
         
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: getCurrLocation.latitude , longitude: getCurrLocation.longitude)))
         source.name = "My Location"
@@ -211,6 +292,6 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         
     }
     
-    
-    
+
+
 }
