@@ -12,7 +12,7 @@ import GoogleMobileAds
 
 class InfoViewController: UIViewController,GADBannerViewDelegate, MFMailComposeViewControllerDelegate {
     
-    @IBOutlet weak var BannerView: GADBannerView!
+  //  @IBOutlet weak var BannerView: GADBannerView!
     @IBOutlet weak var infoLabel: UILabel?
     @IBOutlet weak var feedbackButton: UIButton?
     @IBOutlet weak var inviteFriendsButton: UIButton?
@@ -22,12 +22,12 @@ class InfoViewController: UIViewController,GADBannerViewDelegate, MFMailComposeV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        BannerView.rootViewController = self
-        BannerView.load(GADRequest())
-        BannerView.delegate = self
-        
+        //For Ads
+//        BannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        BannerView.rootViewController = self
+//        BannerView.load(GADRequest())
+//        BannerView.delegate = self
+//
         feedbackButton?.layer.cornerRadius = 8.0
         feedbackButton?.layer.borderWidth = 1.0
         feedbackButton?.layer.cornerRadius = 25.0
