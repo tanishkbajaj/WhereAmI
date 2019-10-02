@@ -1,10 +1,8 @@
 import UIKit
 
 class OnboardingController: UIViewController, UIScrollViewDelegate {
-
     
-    
-    
+    @IBOutlet weak var getStartedButton: UIButton?
     
     @IBOutlet weak var scrollView: UIScrollView!{
         didSet{
@@ -19,6 +17,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getStartedButtonBorderDesign()  
         slides = createSlides()
         setupSlideScrollView(slides: slides)
         
@@ -167,6 +166,16 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         
         // return the fade colour
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    
+    
+    func getStartedButtonBorderDesign(){
+        getStartedButton?.layer.cornerRadius = 8.0
+        getStartedButton?.layer.borderWidth = 1.0
+        getStartedButton?.layer.cornerRadius = 25.0
+        getStartedButton?.layer.borderWidth = 2.0
+        getStartedButton?.layer.borderColor = UIColor.green.cgColor
     }
 }
 

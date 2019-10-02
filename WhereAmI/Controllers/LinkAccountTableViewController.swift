@@ -12,7 +12,7 @@ var flag: Bool?
 class LinkAccountTableViewController: UITableViewController {
 
     
-    var options = ["Remove Ads", "How is works", "About App"]
+    var options = ["Remove Ads", "How it works?", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
     var copyright = "Copyright(c) TCS"
     var switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
