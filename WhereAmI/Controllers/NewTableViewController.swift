@@ -15,7 +15,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     
     
     
-    @IBOutlet weak var bannerTableView: GADBannerView!
+  //  @IBOutlet weak var bannerTableView: GADBannerView!
     var segmentedController: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -31,74 +31,37 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 50;
         
-        //tableView.separatorColor = .blue
-        //tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        //table.separatorColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         
         let items = ["Mi", "Km"]
         segmentedController = UISegmentedControl(items: items)
         segmentedController.selectedSegmentIndex = 0
         
-        
-//        navigationItem.rightBarButtonItem = segmentedController
-//        navigationItem.rightBarButtonItem?.tintColor = UIColor.black
-       
-        
-        
+    
         
         getDistanceArray()
         
+        //For Ads
+//        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+//
+//        let request = GADRequest()
+//        interstitial.load(request)
+//        interstitial.delegate = self
+//
+//        bannerTableView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerTableView.rootViewController = self
+//        bannerTableView.load(GADRequest())
+//        bannerTableView.delegate = self
+//        bannerTableView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+//
+//            self.interstitial.present(fromRootViewController: self)
+//        })
         
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         
-        let request = GADRequest()
-        interstitial.load(request)
-        interstitial.delegate = self
-        
-        bannerTableView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerTableView.rootViewController = self
-        bannerTableView.load(GADRequest())
-        bannerTableView.delegate = self
-        bannerTableView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-            
-            self.interstitial.present(fromRootViewController: self)
-        })
-        
-        //        if interstitial.isReady {
-        //            interstitial.present(fromRootViewController: self)
-        //        } else {
-        //            print("Ad wasn't ready")
-        //        }
     }
     
     
-    //    func createAndLoadInterstitial() -> GADInterstitial {
-    //        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-    //        interstitial.delegate = self
-    //        interstitial.load(GADRequest())
-    //        return interstitial
-    //    }
-    //
-    //    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-    //        interstitial = createAndLoadInterstitial()
-    //    }
-    
-    
-    
-    //    func update() {
-    //        if interstitial.isReady {
-    //            interstitial.present(fromRootViewController: self)
-    //        } else {
-    //            print("Ad wasn't ready")
-    //        }
-    //    }
-    
-    
-    
-    
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (storedLocations.count)
@@ -107,10 +70,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
    
     
 
-//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryItemsTableViewCell", for: indexPath) as! HistoryItemsTableViewCell
@@ -118,16 +78,13 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
       
         
         let dateFormatter = DateFormatter()
-//        let timeFormatter = DateFormatter()
-//        timeFormatter.dateFormat = "hh:mm a"
+
         dateFormatter.dateFormat = "MM/dd/yy"
         
         
         cell.LocationNameLabel.text = storedLocations.reversed()[indexPath.row].address
         
-//
-//        cell.TimeLabel.text = timeFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
-//
+
         cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
         if distanceArray.count == storedLocations.count {
@@ -165,15 +122,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             segmentedController.addTarget(self, action: #selector(indexChanged(_ :)), for: .valueChanged)
             segmentedController.frame = CGRect(x: 280, y: 10, width: 75, height: 30)
         
-//            segmentedController.translatesAutoresizingMaskIntoConstraints = false
-        
-//            segmentedController.trailingAnchor.constraint(equalTo: tableView.rightAnchor).isActive = true
-//
-//            NSLayoutConstraint.activate([
-//            //    segmentedController.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
-//            //    segmentedController.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//                segmentedController.trailingAnchor.constraint(equalTo: headerView.trailingAnchor)
-//                ])
+
         
             headerView.addSubview(segmentedController)
             return headerView
@@ -226,13 +175,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
-    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //
-    //        if editingStyle == .delete {
-    //        self.storedLocations.remove(at: indexPath.row)
-    //        tableView.deleteRows(at: [indexPath], with: .fade)
-    //        }
-    //    }
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
