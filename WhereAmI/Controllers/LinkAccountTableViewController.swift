@@ -12,7 +12,7 @@ var flag: Bool?
 class LinkAccountTableViewController: UITableViewController {
 
     
-    var options = ["Remove Ads", "How is works", "About App"]
+    var options = ["How it works?", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
     var copyright = "Copyright(c) TCS"
     var switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
@@ -55,7 +55,7 @@ class LinkAccountTableViewController: UITableViewController {
         if section == 0{
             return 2
         }else if section == 1{
-            return 3
+            return 2
         }else{
             return 1
         }
@@ -76,10 +76,12 @@ class LinkAccountTableViewController: UITableViewController {
                 cell.textLabel?.textAlignment = .center
                 cell.textLabel?.text = string
             }
-        }else if indexPath.section == 1{
+        }
+        else if indexPath.section == 1{
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = options[indexPath.row]
-        }else if indexPath.section == 2{
+        }
+        else if indexPath.section == 2{
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .gray
             cell.backgroundColor = .none
@@ -110,25 +112,25 @@ class LinkAccountTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             
-            if indexPath.row == 0 {
-                
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let removeADsController = storyBoard.instantiateViewController(withIdentifier: "removeADs")
-                
-                self.navigationController?.pushViewController(removeADsController, animated: true)
-                tableView.deselectRow(at: indexPath, animated: true)
-
-                
-            }
+//            if indexPath.row == 0 {
+//                
+//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let removeADsController = storyBoard.instantiateViewController(withIdentifier: "removeADs")
+//                
+//                self.navigationController?.pushViewController(removeADsController, animated: true)
+//                tableView.deselectRow(at: indexPath, animated: true)
+//
+//                
+//            }
             
-            if indexPath.row == 1 {
+            if indexPath.row == 0 {
 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "onboarding")
                 self.present(newViewController, animated: true, completion: nil)
                
             }
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let infoController = storyBoard.instantiateViewController(withIdentifier: "infoController")
                 self.show(infoController, sender: self)

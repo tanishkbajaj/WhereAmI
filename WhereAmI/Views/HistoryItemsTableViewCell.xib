@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZu-sx-ENl">
-                        <rect key="frame" x="102" y="10" width="115" height="21"/>
+                        <rect key="frame" x="102" y="10" width="252" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="2uE-ij-0TE"/>
-                            <constraint firstAttribute="width" constant="115" id="GKu-1i-EZH"/>
+                            <constraint firstAttribute="width" constant="252" id="GKu-1i-EZH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -70,10 +70,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 Mi away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2m-OX-bXt">
-                        <rect key="frame" x="252" y="41" width="128" height="20.5"/>
+                        <rect key="frame" x="252" y="41" width="140" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20.5" id="XhX-Mf-dqd"/>
-                            <constraint firstAttribute="width" constant="128" id="o1i-mQ-iUK"/>
+                            <constraint firstAttribute="width" constant="140" id="o1i-mQ-iUK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
