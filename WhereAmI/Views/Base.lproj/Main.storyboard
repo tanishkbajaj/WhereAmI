@@ -332,27 +332,17 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Restore Purchase"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfS-O0-iBo">
-                                <rect key="frame" x="16" y="305" width="343" height="39"/>
-                                <color key="backgroundColor" red="1" green="0.62005117036981616" blue="0.019735688710134869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Remove Ads for $ 1.99">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="J5w-U1-Gbj" firstAttribute="leading" secondItem="nZj-sd-cKt" secondAttribute="leading" constant="83" id="1BE-ct-zCD"/>
-                            <constraint firstItem="vfS-O0-iBo" firstAttribute="leading" secondItem="nZj-sd-cKt" secondAttribute="leading" constant="16" id="5w1-5f-mbB"/>
-                            <constraint firstItem="vfS-O0-iBo" firstAttribute="top" secondItem="tRS-mK-kfj" secondAttribute="bottom" constant="129" id="ONK-He-V7S"/>
-                            <constraint firstItem="nZj-sd-cKt" firstAttribute="trailing" secondItem="J5w-U1-Gbj" secondAttribute="trailing" constant="79" id="Rc0-ok-Egd"/>
-                            <constraint firstItem="nZj-sd-cKt" firstAttribute="trailing" secondItem="tRS-mK-kfj" secondAttribute="trailing" constant="16" id="Yl7-f5-BsM"/>
-                            <constraint firstItem="vfS-O0-iBo" firstAttribute="top" secondItem="tRS-mK-kfj" secondAttribute="bottom" constant="129" id="dJU-sy-Nl8"/>
-                            <constraint firstItem="tRS-mK-kfj" firstAttribute="leading" secondItem="nZj-sd-cKt" secondAttribute="leading" constant="16" id="g3a-vn-FHC"/>
-                            <constraint firstItem="nZj-sd-cKt" firstAttribute="trailing" secondItem="vfS-O0-iBo" secondAttribute="trailing" constant="16" id="v8l-67-zZL"/>
-                            <constraint firstItem="tRS-mK-kfj" firstAttribute="top" secondItem="nZj-sd-cKt" secondAttribute="top" constant="27" id="xHD-5r-wPU"/>
-                            <constraint firstItem="J5w-U1-Gbj" firstAttribute="top" secondItem="vfS-O0-iBo" secondAttribute="bottom" constant="65" id="yTC-la-fSi"/>
+                            <constraint firstItem="tRS-mK-kfj" firstAttribute="top" secondItem="nZj-sd-cKt" secondAttribute="top" constant="27" id="BeL-C0-uSV"/>
+                            <constraint firstItem="nZj-sd-cKt" firstAttribute="bottom" secondItem="J5w-U1-Gbj" secondAttribute="bottom" constant="225" id="L0t-vZ-0bI"/>
+                            <constraint firstItem="tRS-mK-kfj" firstAttribute="leading" secondItem="nZj-sd-cKt" secondAttribute="leading" constant="16" id="Qmc-8y-yzk"/>
+                            <constraint firstItem="J5w-U1-Gbj" firstAttribute="top" secondItem="tRS-mK-kfj" secondAttribute="bottom" constant="233" id="VRM-Bu-E68"/>
+                            <constraint firstItem="nZj-sd-cKt" firstAttribute="trailing" secondItem="tRS-mK-kfj" secondAttribute="trailing" constant="16" id="a1t-NG-hZm"/>
+                            <constraint firstItem="J5w-U1-Gbj" firstAttribute="leading" secondItem="nZj-sd-cKt" secondAttribute="leading" constant="83" id="bni-cH-lxM"/>
+                            <constraint firstItem="nZj-sd-cKt" firstAttribute="trailing" secondItem="J5w-U1-Gbj" secondAttribute="trailing" constant="79" id="jas-MY-gNw"/>
+                            <constraint firstItem="J5w-U1-Gbj" firstAttribute="top" secondItem="tRS-mK-kfj" secondAttribute="bottom" constant="233" id="uHB-eR-6i2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nZj-sd-cKt"/>
                     </view>
