@@ -13,7 +13,7 @@
         <!--Location Finder-->
         <scene sceneID="9oz-rT-6jS">
             <objects>
-                <viewController id="hHO-fx-t25" customClass="ViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hHO-fx-t25" customClass="ViewController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nlV-ES-JtV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,9 +95,9 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaR-Le-GYX">
-                                <rect key="frame" x="73" y="370" width="235" height="71"/>
+                                <rect key="frame" x="58" y="370" width="259" height="71"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="235" id="SVv-iD-AeI"/>
+                                    <constraint firstAttribute="width" constant="259" id="SVv-iD-AeI"/>
                                     <constraint firstAttribute="height" constant="71" id="ctk-Mn-Xjb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -117,9 +117,8 @@
                             <constraint firstItem="S93-qK-gqW" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" id="ab9-gs-Uyh"/>
                             <constraint firstItem="zeP-UQ-w11" firstAttribute="top" secondItem="G7u-kb-FOE" secondAttribute="top" constant="10" id="but-rX-LCo"/>
                             <constraint firstItem="G7u-kb-FOE" firstAttribute="trailing" secondItem="cjD-2B-EaJ" secondAttribute="trailing" id="dJh-Yb-Lce"/>
-                            <constraint firstItem="v8p-Om-PmI" firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" constant="27.5" id="e7G-bt-2C4"/>
-                            <constraint firstItem="cjD-2B-EaJ" firstAttribute="bottom" secondItem="v8p-Om-PmI" secondAttribute="bottom" constant="10" id="ecM-MX-1Q0"/>
-                            <constraint firstItem="xaR-Le-GYX" firstAttribute="centerX" secondItem="S93-qK-gqW" secondAttribute="centerX" constant="3" id="exX-3X-jIq"/>
+                            <constraint firstAttribute="leading" secondItem="cjD-2B-EaJ" secondAttribute="leading" constant="27.5" id="e7G-bt-2C4"/>
+                            <constraint firstItem="xaR-Le-GYX" firstAttribute="centerX" secondItem="S93-qK-gqW" secondAttribute="centerX" id="exX-3X-jIq"/>
                             <constraint firstItem="S93-qK-gqW" firstAttribute="top" secondItem="G7u-kb-FOE" secondAttribute="bottom" constant="-1" id="g9G-F9-Jpy"/>
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="trailing" secondItem="AZ6-Pv-YGZ" secondAttribute="trailing" constant="30" id="iqm-BH-FCz"/>
                             <constraint firstItem="cjD-2B-EaJ" firstAttribute="bottom" secondItem="AZ6-Pv-YGZ" secondAttribute="bottom" constant="10" id="mh1-pT-4vI"/>
@@ -160,13 +159,13 @@
         <!--Saved Pins-->
         <scene sceneID="VQD-Di-Sbc">
             <objects>
-                <tableViewController title="Saved Pins" id="cpO-Ob-toN" customClass="NewTableViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved Pins" id="cpO-Ob-toN" customClass="NewTableViewController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CVI-ta-LzJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="JST-0t-D6R" customClass="HistoryItemsTableViewCell" customModule="LocationFinder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="JST-0t-D6R" customClass="HistoryItemsTableViewCell" customModule="Location_Finder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JST-0t-D6R" id="8Kn-LN-F4l">
@@ -188,7 +187,7 @@
         <!--About Location Finder App-->
         <scene sceneID="iDg-G2-R6c">
             <objects>
-                <viewController storyboardIdentifier="infoController" title="About Location Finder App" id="qKW-FR-2UN" customClass="InfoViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoController" title="About Location Finder App" id="qKW-FR-2UN" customClass="InfoViewController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K6u-zC-Kd8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +282,7 @@
         <!--Remove Ads-->
         <scene sceneID="W0K-eF-Utf">
             <objects>
-                <viewController storyboardIdentifier="removeADs" title="Remove Ads" id="Iya-NV-zrU" customClass="RemoveAdsViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="removeADs" title="Remove Ads" id="Iya-NV-zrU" customClass="RemoveAdsViewController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W8d-fb-jQh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,7 +334,7 @@
         <!--Onboarding Controller-->
         <scene sceneID="2Sv-OE-aNe">
             <objects>
-                <viewController storyboardIdentifier="onboarding" id="Q5z-gy-qHY" customClass="OnboardingController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding" id="Q5z-gy-qHY" customClass="OnboardingController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y1f-fU-PFX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,7 +410,7 @@
         <!--Link Account Table View Controller-->
         <scene sceneID="3u5-eb-bbm">
             <objects>
-                <tableViewController id="mlO-LQ-6jD" customClass="LinkAccountTableViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mlO-LQ-6jD" customClass="LinkAccountTableViewController" customModule="Location_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dzc-bf-9cf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
