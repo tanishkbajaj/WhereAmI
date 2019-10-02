@@ -10,7 +10,8 @@ import UIKit
 
 class Slide: UIView {
 
-    @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     

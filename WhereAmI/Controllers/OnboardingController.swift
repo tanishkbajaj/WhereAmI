@@ -1,10 +1,8 @@
 import UIKit
 
 class OnboardingController: UIViewController, UIScrollViewDelegate {
-
     
-    
-    
+    @IBOutlet weak var getStartedButton: UIButton?
     
     @IBOutlet weak var scrollView: UIScrollView!{
         didSet{
@@ -19,6 +17,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getStartedButtonBorderDesign()  
         slides = createSlides()
         setupSlideScrollView(slides: slides)
         
@@ -47,22 +46,26 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
 
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide1.imageView.image = UIImage(named: "Screen1&2")
-        slide1.textView.text = "You get your current location exact coordinates and nearest available street address"
+        slide1.textLabel.text = "You get your current location exact coordinates and nearest available street address"
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.imageView.image = UIImage(named: "Screen1&2")
-        slide2.textView.text = "Share or Pin your address & coordinates. You would be able to navigate to pinned address by tapping last visited or History"
+        slide2.textLabel.text = "Share or Pin your address & coordinates. You would be able to navigate to pinned address by tapping last visited or History"
         
         let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide3.imageView.image = UIImage(named: "img3")
-        slide3.textView.text = "Change Setting to Quick Pin so you can save the address at the tap of button"
+        slide3.textLabel.text = "Change Setting to Quick Pin so you can save the address at the tap of button"
+        
+        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        slide4.imageView.image = UIImage(named: "distanceScreen")
+        slide4.textLabel.text = "See the distance of your pinned places from your current location"
         
         
         
         
         
         
-        return [slide1, slide2, slide3]
+        return [slide1, slide2, slide3, slide4]
     }
     
     
@@ -167,6 +170,16 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         
         // return the fade colour
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    
+    
+    func getStartedButtonBorderDesign(){
+        getStartedButton?.layer.cornerRadius = 8.0
+        getStartedButton?.layer.borderWidth = 1.0
+        getStartedButton?.layer.cornerRadius = 25.0
+        getStartedButton?.layer.borderWidth = 2.0
+        getStartedButton?.layer.borderColor = UIColor.green.cgColor
     }
 }
 
