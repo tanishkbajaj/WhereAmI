@@ -9,6 +9,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     var interstitial: GADInterstitial!
     var distanceArray : [Double] = []
     var distanceArr : [Distance] = []
+    var segmentedControllerStoredValue = UserDefaults.standard.integer(forKey: "value")
     
     var tableViewFlag : Bool = false
     
@@ -106,6 +107,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
                 DistanceLabel = "NA"
             }
             cell.DistanceLabel.text = DistanceLabel
+           // cell.DistanceLabel.text = "1386.43 Mi away"
         }
         
         return cell
@@ -122,7 +124,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             segmentedController.addTarget(self, action: #selector(indexChanged(_ :)), for: .valueChanged)
             segmentedController.frame = CGRect(x: 280, y: 10, width: 75, height: 30)
         
-
+            segmentedController.selectedSegmentIndex = segmentedControllerStoredValue
         
             headerView.addSubview(segmentedController)
             return headerView
@@ -131,6 +133,12 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     
     @objc func indexChanged(_ sender: UISegmentedControl)
     {
+        if segmentedControllerStoredValue != 1 {
+            segmentedControllerStoredValue = 1
+        } else {
+            segmentedControllerStoredValue = 0
+        }
+        UserDefaults.standard.set(segmentedControllerStoredValue, forKey: "value")
         self.tableView.reloadData()
     }
     
