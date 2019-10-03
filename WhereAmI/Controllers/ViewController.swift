@@ -53,7 +53,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             
             UIApplication.shared.open(url, options: [:], completionHandler: {(success: Bool) in
                 if success {
-                    print("Launching \(url) was successful")
                 }})
         }
         
@@ -102,7 +101,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             textField.text = self.addressStreet
         })
         
-       print("seeee thisssss", linkedViewcontroller.switchViewBool )
         if linkedViewcontroller.switchViewBool {
             let currentLocation = Location(self.addressStreet, self.location.latitude, self.location.longitude, Date())
             self.sendingLocation.append(currentLocation)
@@ -141,8 +139,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        // mapView.addAnnotation(annotation)
-        print("this is annotation", annotation.coordinate)
     }
     
     
@@ -265,20 +261,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                 if pm?.count ?? 0 > 0 {
                     let pm = placemarks![0]
                     self.addressStreet = pm.name!
-                    print(pm.administrativeArea)
-                    //                    print(pm.locality)
-                    //                    print(pm.subLocality)
-                    //                    print(pm.thoroughfare)
-                    //                    print(pm.postalCode)
-                    //             print(pm.subThoroughfare)
+                    
                     var addressString : String = ""
-                    //                    if pm.subThoroughfare != nil {
-                    //                        addressString = addressString + pm.subThoroughfare! + ", "
-                    //                    }
-                    //
-                    //                    if pm.thoroughfare != nil {
-                    //                        addressString = addressString + pm.thoroughfare! + ", "
-                    //                    }
                     
                     if pm.name != nil {
                         addressString = addressString + pm.name! + ", \n"
@@ -287,17 +271,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                     if pm.locality != nil {
                         addressString = addressString + pm.locality! + ", "
                     }
-                    //                    if pm. = nil {
-                    //                        addressString = addressString + pm.
-                    //                    }
-                    
+                   
                     if pm.administrativeArea != nil {
-                        addressString = addressString + pm.administrativeArea! + ", "
+                    addressString = addressString + pm.administrativeArea! + ", "
                     }
                     
-                    //                    if pm.subLocality != nil {
-                    //                        addressString = addressString + pm.subLocality! + ", "
-                    //                    }
+                    
                     if pm.postalCode != nil {
                         addressString = addressString + pm.postalCode! + ", \n"
                     }
@@ -306,9 +285,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
                         addressString = addressString + pm.country! + " "
                     }
                     
-                    
                     self.AddressLabel.text = addressString
-                    print(addressString)
                 }
         })
         

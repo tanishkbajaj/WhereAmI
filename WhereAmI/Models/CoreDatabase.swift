@@ -38,7 +38,6 @@ class CoreDatabase {
         // 4
         do {
             try managedContext.save()
-            print("SSS")
             print(location.address, location.latitude, location.longitude)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -52,8 +51,6 @@ class CoreDatabase {
             UIApplication.shared.delegate as? AppDelegate else {
                 return
         }
-        
-        print(location.address)
         
         let managedContext =
             appDelegate.persistentContainer.viewContext

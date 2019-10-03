@@ -25,7 +25,6 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = 0
         view.bringSubviewToFront(pageControl)
         self.view.backgroundColor = .darkGray
-        //navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +33,6 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-       // navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -81,11 +79,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    /*
-     * default function called when view is scolled. In order to enable callback
-     * when scrollview is scrolled, the below code needs to be called:
-     * slideScrollView.delegate = self or
-     */
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
@@ -100,35 +94,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
         
-        
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
-//        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
-        
-    
-        /*
-         * below code scales the imageview on paging the scrollview
-         */
-//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-//
-//        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-//
-//            slides[0].imageView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-//            slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-//
-//        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-//            slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-//
-//        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-//
-//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-//        }
+       
     }
     
     
@@ -136,9 +102,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
     
     func scrollView(_ scrollView: UIScrollView, didScrollToPercentageOffset percentageHorizontalOffset: CGFloat) {
         if(pageControl.currentPage == 0) {
-            //Change background color to toRed: 103/255, fromGreen: 58/255, fromBlue: 183/255, fromAlpha: 1
-            //Change pageControl selected color to toRed: 103/255, toGreen: 58/255, toBlue: 183/255, fromAlpha: 0.2
-            //Change pageControl unselected color to toRed: 255/255, toGreen: 255/255, toBlue: 255/255, fromAlpha: 1
+            
             
             let pageUnselectedColor: UIColor = fade(fromRed: 255/255, fromGreen: 255/255, fromBlue: 255/255, fromAlpha: 1, toRed: 103/255, toGreen: 58/255, toBlue: 183/255, toAlpha: 1, withPercentage: percentageHorizontalOffset * 3)
             pageControl.pageIndicatorTintColor = pageUnselectedColor

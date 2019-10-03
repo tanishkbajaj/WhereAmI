@@ -26,12 +26,8 @@ class LinkAccountTableViewController: UITableViewController {
         
 
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
         tableView.backgroundColor = hexStringToUIColor(hex: "#DADADA")
-      //  switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
         
     }
     
@@ -112,16 +108,6 @@ class LinkAccountTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
             
-//            if indexPath.row == 0 {
-//                
-//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                let removeADsController = storyBoard.instantiateViewController(withIdentifier: "removeADs")
-//                
-//                self.navigationController?.pushViewController(removeADsController, animated: true)
-//                tableView.deselectRow(at: indexPath, animated: true)
-//
-//                
-//            }
             
             if indexPath.row == 0 {
 
@@ -169,10 +155,7 @@ class LinkAccountTableViewController: UITableViewController {
         //Diables the auto resize of the image
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Settings"
-        //label.textColor = .white
         label.textAlignment = .left
-       // label.font = UIFont.systemFont(ofSize: 20)
-      //  label.font = UIFont.boldSystemFont(ofSize: 22.0)
         navigationItem.titleView = label
     }
     

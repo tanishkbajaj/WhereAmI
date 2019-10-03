@@ -152,9 +152,6 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             DistanceCalculator.routingDistance(getCurrLocation, storedLocations.reversed()[index]) { distance in
                 self.distanceArray.append(distance)
                 self.distanceArr.append(Distance(distance: distance, date: self.storedLocations.reversed()[index].date))
-                print("Distance \(self.getCurrLocation) to \(self.storedLocations.reversed()[index]) : " + String(distance))
-                //  self.tableView.reloadData()
-                
                 self.tableViewFlag = true
                 self.tableView.reloadData()
                 
@@ -196,15 +193,11 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             temporaryArray.remove(at: indexPath.row)
             
             self.storedLocations = Array(temporaryArray.reversed())
-            // tableView.reloadData()
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
-            // tableView.reloadData()
             
         }
         
         let share = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
-            print("I want to edit: \(self.storedLocations.reversed()[indexPath.row])")
             
             let alert = UIAlertController(title: "Edit Address", message: "Change Address Name", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
