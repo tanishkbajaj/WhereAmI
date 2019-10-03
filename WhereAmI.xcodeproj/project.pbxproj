@@ -455,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanis1hk.WhereAmI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanis11hk.WhereAmI;
 				PRODUCT_NAME = "Location Finder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -476,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanis1hk.WhereAmI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanis11hk.WhereAmI;
 				PRODUCT_NAME = "Location Finder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

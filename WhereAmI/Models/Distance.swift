@@ -26,15 +26,12 @@ class DistanceCalculator {
         // Specify the transportation type
         request.transportType = MKDirectionsTransportType.automobile;
         
-        // If you're open to getting more than one route,
-        // requestsAlternateRoutes = true; else requestsAlternateRoutes = false;
         request.requestsAlternateRoutes = true
         
         let directions = MKDirections(request: request)
         
         directions.calculate { (response, error) in
             if let response = response, let route = response.routes.first {
-                print(route.distance)
                 completion(route.distance)
             } else {
                 completion(-1.0)
