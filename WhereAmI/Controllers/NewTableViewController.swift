@@ -7,7 +7,6 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
     var storedLocations : [Location] = CoreDatabase.fetchLocations()
     var getCurrLocation: Location = Location()
     var interstitial: GADInterstitial!
-    var distanceArray : [Double] = []
     var distanceArr : [Distance] = []
     var segmentedControllerStoredValue = UserDefaults.standard.integer(forKey: "value")
     
@@ -88,7 +87,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
 
         cell.DateLabel.text = dateFormatter.string(from: storedLocations.reversed()[indexPath.row].date)
         
-        if distanceArray.count == storedLocations.count {
+        if distanceArr.count == storedLocations.count {
             distanceArr = distanceArr.sorted(by: { $0.date > $1.date })
             
             var DistanceLabel = ""
@@ -150,7 +149,6 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         for index in 0...storedLocations.count-1{
             group.enter()
             DistanceCalculator.routingDistance(getCurrLocation, storedLocations.reversed()[index]) { distance in
-                self.distanceArray.append(distance)
                 self.distanceArr.append(Distance(distance: distance, date: self.storedLocations.reversed()[index].date))
                 self.tableViewFlag = true
                 self.tableView.reloadData()
@@ -197,7 +195,7 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             
         }
         
-        let share = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             
             let alert = UIAlertController(title: "Edit Address", message: "Change Address Name", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -229,9 +227,9 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
             
         }
         
-        share.backgroundColor = UIColor.lightGray
+        edit.backgroundColor = UIColor.lightGray
         
-        return [delete, share]
+        return [delete, edit]
         
     }
     
