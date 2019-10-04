@@ -46,7 +46,7 @@ class InfoViewController: UIViewController,GADBannerViewDelegate, MFMailComposeV
         if MFMailComposeViewController.canSendMail(){
             let mail =  MFMailComposeViewController()
             mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
-            mail.setToRecipients(["channappakg@gmail.com"])
+            mail.setToRecipients(["knight.coders90@gmail.com"])
             mail.setMessageBody("Feedback for 'Where Am I'", isHTML: true)
             present(mail, animated: true)
         }else{
