@@ -202,7 +202,7 @@
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. The helps you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</string>
+                                        <mutableString key="content">The app helps you to provide the nearest location on and address with the help of GPS coordinates. It provides you with the option of sharing the current location with the help of different messaging tools. The app tries to provide you the best possible address but can't be accountable on any incorrect details. The address is stored on your phone, locally. You can also get the distance from current location to different location to which the places have been pinned. It also saves the time and date to which the location are pinned.</mutableString>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="15" name="Avenir-Book"/>
