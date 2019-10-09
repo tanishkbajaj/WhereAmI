@@ -14,7 +14,7 @@ class LinkAccountTableViewController: UITableViewController {
     
     var options = ["How it works?", "About App"]
     var string = "Quick Pin allows you to save the address just by tapping Pin It! Aleternatively, you can give title for the address you save"
-    var copyright = "Copyright(c) TCS"
+    var copyright = "Copyright(c) Knight Coders"
     var switchViewBool = UserDefaults.standard.bool(forKey: "switchState")
     var quickPin = "Quick Pin"
     

@@ -46,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         
         // App Store URL.
-        let appStoreLink = "https://itunes.apple.com/us/app/apple-store/id1190643586"
+        let appStoreLink = "https://itunes.apple.com/us/app/apple-store/id1482318376"
         
         
         if let url = URL(string: appStoreLink), UIApplication.shared.canOpenURL(url) {
