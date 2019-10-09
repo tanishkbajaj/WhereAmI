@@ -112,6 +112,8 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         return cell
     }
     
+  
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
 
@@ -178,6 +180,25 @@ class NewTableViewController: UITableViewController, GADInterstitialDelegate,GAD
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
+    override func tableView(_ tableView: UITableView,
+                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        
+        let closeAction = UIContextualAction(style: .normal, title:  "Share", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("CloseAction ...")
+            
+            let activity = UIActivityViewController(
+                activityItems: ["Here is my current address: \(self.storedLocations.reversed()[indexPath.row].address)  Coordinates are:( \(self.storedLocations.reversed()[indexPath.row].latitude), \(self.storedLocations.reversed()[indexPath.row].longitude))"],
+                applicationActivities: nil
+            )
+            self.present(activity, animated: true, completion: nil)
+            
+            success(true)
+        })
+        closeAction.backgroundColor = .blue
+        return UISwipeActionsConfiguration(actions: [closeAction])
+        
+    }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
